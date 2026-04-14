@@ -1,0 +1,12 @@
+{
+  "miniprogramRoot": "./",
+  "compileType": "miniprogram",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "urlCheck": false,
+    "minified": false
+  },
+  "appid": "touristappid",
+  "projectname": "rainbow-bead-shop"
+}

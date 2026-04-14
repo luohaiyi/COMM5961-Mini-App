@@ -1,0 +1,4 @@
+{
+  "desc": "默认 sitemap",
+  "rules": [{ "action": "allow", "page": "*" }]
+}
