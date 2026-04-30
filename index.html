@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>LIHO</title>
+  <title>LIHO - Bead Craft Shop</title>
   <style>
     /**
-     * 由小程序 wxss 转换：750rpx = min(100vw, 430px)，与真机视觉比例一致；大屏居中限宽
+     * Converted from Mini Program wxss: 750rpx = min(100vw, 430px), matching real device proportions; centered on large screens
      */
     :root {
       --page-max: 430px;
       --rpx: calc(min(100vw, var(--page-max)) / 750);
       --status-bar-height: max(20px, env(safe-area-inset-top, 0px));
       --nav-bar-height: 44px;
-      /* 底部固定 Tab 占位（按钮区 + 安全区），避免内容被遮挡 */
+      /* Fixed bottom Tab placeholder (button area + safe area), prevents content from being covered */
       --tab-bar-total-height: calc(var(--rpx) * 120 + env(safe-area-inset-bottom, 0px));
-      /* 商品详情底部按钮区占位 */
+      /* Product detail bottom button area placeholder */
       --detail-actions-h: calc(var(--rpx) * 100 + env(safe-area-inset-bottom, 0px));
-      /* LIHO 品牌：清新薄荷绿 + 暖棕金 */
+      /* LIHO Brand: Fresh mint green + warm brown gold */
       --br-mint-0: #e8f4ef;
       --br-mint-1: #d4ebe0;
       --br-mint-2: #c5e3d4;
@@ -65,7 +65,7 @@
         -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* ---------- 1. 顶部导航 ---------- */
+    /* ---------- 1. Top Navigation ---------- */
     .nav-shell {
       position: fixed;
       top: 0;
@@ -115,7 +115,7 @@
       height: calc(var(--status-bar-height) + var(--nav-bar-height) + var(--rpx) * 24);
     }
 
-    /* ---------- 主滚动区 ---------- */
+    /* ---------- Main Scroll Area ---------- */
     .main-scroll {
       flex: 1;
       height: 0;
@@ -131,7 +131,7 @@
       display: none;
     }
 
-    /* ---------- 板块切换（仅控制显隐，不改变内部版块样式） ---------- */
+    /* ---------- Panel Switch (controls visibility only, does not change internal styles) ---------- */
     .tab-panel {
       display: none;
     }
@@ -140,7 +140,7 @@
       display: block;
     }
 
-    /* ---------- 底部固定导航 ---------- */
+    /* ---------- Fixed Bottom Navigation ---------- */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -174,7 +174,7 @@
       border: none;
       cursor: pointer;
       font-family: inherit;
-      font-size: calc(var(--rpx) * 26);
+      font-size: calc(var(--rpx) * 22);
       font-weight: 600;
       color: var(--br-brown-soft);
       padding: calc(var(--rpx) * 18) calc(var(--rpx) * 8);
@@ -193,6 +193,12 @@
     }
 
     .bottom-nav-btn:nth-child(3) {
+      background: linear-gradient(145deg, #eaf6ef 0%, #d8ebe3 100%);
+      color: var(--br-brown-soft);
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) var(--br-shadow);
+    }
+
+    .bottom-nav-btn:nth-child(4) {
       background: linear-gradient(145deg, #eaf6ef 0%, #d8ebe3 100%);
       color: var(--br-brown-soft);
       box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) var(--br-shadow);
@@ -219,6 +225,11 @@
       box-shadow: 0 calc(var(--rpx) * 8) calc(var(--rpx) * 22) var(--br-shadow-brown);
     }
 
+    .bottom-nav-btn:nth-child(4).is-active {
+      background: linear-gradient(145deg, #d4b87a 0%, #b8963d 55%, #9a7b3a 100%);
+      box-shadow: 0 calc(var(--rpx) * 8) calc(var(--rpx) * 22) var(--br-shadow-brown);
+    }
+
     .bottom-nav-btn:active:not(:disabled) {
       transform: scale(0.96);
     }
@@ -227,7 +238,7 @@
       transform: scale(0.98);
     }
 
-    /* ---------- 通用小节标题 ---------- */
+    /* ---------- Common Section Title ---------- */
     .section {
       padding: calc(var(--rpx) * 8) calc(var(--rpx) * 28) calc(var(--rpx) * 36);
     }
@@ -256,7 +267,7 @@
       color: var(--br-brown-dark);
     }
 
-    /* ---------- 2. 商品网格 ---------- */
+    /* ---------- 2. Product Grid ---------- */
     .product-grid {
       display: flex;
       flex-wrap: wrap;
@@ -289,7 +300,7 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      /* 避免裂图图标与 alt 在部分浏览器中露出文字感 */
+      /* Avoid showing broken image icon/text in some browsers */
       color: transparent;
     }
 
@@ -331,7 +342,7 @@
       box-sizing: border-box;
     }
 
-    /* 单色补充包：浅色底 + 暖棕字与描边 */
+    /* Single Pack: Light background + warm brown text and border */
     .tag-mix {
       background: linear-gradient(135deg, #fde8e8, #f5ddd0);
       color: var(--br-brown) !important;
@@ -357,7 +368,7 @@
       color: var(--br-brown) !important;
       border: calc(var(--rpx) * 2) solid rgba(154, 123, 58, 0.45);
     }
-    /* 套装：暖棕金底白字 */
+    /* Set: Warm gold background, white text */
     .tag-lav {
       background: linear-gradient(135deg, #d4b87a, #b8963d);
       color: #fff !important;
@@ -374,7 +385,7 @@
       border: none;
     }
 
-    /* ---------- 3. 安全指南 ---------- */
+    /* ---------- 3. Safety Guide ---------- */
     .section-safety {
       padding-top: calc(var(--rpx) * 12);
     }
@@ -474,7 +485,7 @@
       line-height: 1.5;
     }
 
-    /* 安全玩豆指南：新增卡片（熨烫须知 / 工具建议）占位与列表，不影响既有 .safety-* 规则 */
+    /* Safe Beading Guide：新增卡片（Ironing Instructions / Tool Recommendations）占位与列表，不影响既有 .safety-* 规则 */
     .safety-hero-placeholder {
       background: linear-gradient(135deg, #e8f4ef, #f5f0e0);
     }
@@ -501,7 +512,7 @@
       line-height: 1.55;
     }
 
-    /* ---------- 4. 护眼指南 ---------- */
+    /* ---------- 4. Eye Protection Guide ---------- */
     .section-eye {
       padding-bottom: calc(var(--rpx) * 8);
     }
@@ -586,7 +597,7 @@
       height: calc(var(--rpx) * 32 + env(safe-area-inset-bottom, 0px));
     }
 
-    /* ---------- 全局：应用视图切换（不改变首页内部原有样式） ---------- */
+    /* ---------- Global: App view switch (does not change home page internal styles) ---------- */
     .app-view {
       display: none;
       flex: 1;
@@ -603,7 +614,7 @@
       display: none;
     }
 
-    /* 右上角固定图标栏（所有视图可见） */
+    /* Fixed icon bar in top right (visible in all views) */
     .top-action-icons {
       position: fixed;
       top: calc(var(--status-bar-height) + 6px);
@@ -686,7 +697,7 @@
       margin: 0 auto;
     }
 
-    /* ---------- 商品详情页 ---------- */
+    /* ---------- Product Details Page ---------- */
     .detail-top {
       flex-shrink: 0;
       display: flex;
@@ -911,7 +922,7 @@
       transform: scale(0.98);
     }
 
-    /* ---------- 购物车页 ---------- */
+    /* ---------- Cart Page ---------- */
     .subpage-top {
       flex-shrink: 0;
       display: flex;
@@ -1163,7 +1174,7 @@
       display: none;
     }
 
-    /* ---------- 个人中心 ---------- */
+    /* ---------- Profile ---------- */
     .profile-header {
       flex-shrink: 0;
       padding: calc(var(--status-bar-height) + var(--rpx) * 8) calc(var(--rpx) * 28) calc(var(--rpx) * 28);
@@ -1177,6 +1188,73 @@
       display: flex;
       align-items: center;
       gap: calc(var(--rpx) * 24);
+    }
+
+    .profile-avatar-slot {
+      position: relative;
+      width: calc(var(--rpx) * 120);
+      height: calc(var(--rpx) * 120);
+      flex-shrink: 0;
+    }
+
+    .profile-avatar-icon-wrap {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(165deg, #f0faf5 0%, #dff2e8 100%);
+      border: calc(var(--rpx) * 4) solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 calc(var(--rpx) * 6) calc(var(--rpx) * 18) var(--br-shadow);
+      box-sizing: border-box;
+    }
+
+    .profile-avatar-icon-wrap[hidden] {
+      display: none !important;
+    }
+
+    .profile-avatar-emoji {
+      font-size: calc(var(--rpx) * 64);
+      line-height: 1;
+    }
+
+    .profile-avatar--sync-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-avatar--sync-photo[hidden] {
+      display: none !important;
+    }
+
+    .profile-avatar-sync-tip {
+      font-size: calc(var(--rpx) * 22);
+      color: var(--br-muted);
+      margin: calc(var(--rpx) * 16) 0 0;
+      line-height: 1.45;
+      max-width: calc(var(--rpx) * 460);
+    }
+
+    .profile-avatar-shortcut {
+      margin-top: calc(var(--rpx) * 14);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: calc(var(--rpx) * 24);
+      font-weight: 700;
+      color: var(--br-green-text);
+      padding: calc(var(--rpx) * 8) 0;
+      background: transparent;
+      text-decoration: underline;
+      text-underline-offset: calc(var(--rpx) * 4);
+    }
+
+    .profile-avatar-shortcut:active {
+      opacity: 0.85;
     }
 
     .profile-avatar {
@@ -1279,7 +1357,7 @@
       line-height: 1.5;
     }
 
-    /* 可点击商品卡片 */
+    /* Clickable product cards */
     .product-card.product-card--clickable {
       cursor: pointer;
     }
@@ -1292,7 +1370,7 @@
       transition: transform 0.12s ease;
     }
 
-    /* 全局轻提示 */
+    /* Global toast notifications */
     .global-toast {
       position: fixed;
       left: 50%;
@@ -1317,14 +1395,1051 @@
       transform: translate(-50%, -50%) scale(1);
       pointer-events: auto;
     }
+
+    /* ---------- Bead Challenge：Forest Trail + 自然物卡 + BeadLittle 人 ---------- */
+    .challenge-forest {
+      position: relative;
+      margin: calc(var(--rpx) * -8) calc(var(--rpx) * -12) 0;
+      padding: calc(var(--rpx) * 16) calc(var(--rpx) * 16) calc(var(--rpx) * 8);
+      border-radius: calc(var(--rpx) * 8);
+      background: linear-gradient(
+        180deg,
+        #e2f5ea 0%,
+        #d4efd8 22%,
+        #c8e8d0 42%,
+        #bddfc6 62%,
+        #b0d6bc 82%,
+        #a3ccaf 100%
+      );
+      overflow: visible;
+    }
+
+    .challenge-forest-sky {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 42%;
+      background: linear-gradient(
+        180deg,
+        rgba(242, 252, 246, 0.72) 0%,
+        rgba(220, 245, 230, 0.38) 50%,
+        transparent 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .challenge-forest-trees {
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: 0;
+      height: 52%;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 28% 120% at 8% 100%, rgba(82, 130, 98, 0.32) 0%, transparent 72%),
+        radial-gradient(ellipse 22% 95% at 24% 100%, rgba(78, 122, 92, 0.28) 0%, transparent 68%),
+        radial-gradient(ellipse 35% 130% at 42% 100%, rgba(72, 118, 88, 0.34) 0%, transparent 75%),
+        radial-gradient(ellipse 26% 100% at 58% 100%, rgba(80, 124, 94, 0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 110% at 76% 100%, rgba(70, 112, 86, 0.32) 0%, transparent 72%),
+        radial-gradient(ellipse 24% 90% at 92% 100%, rgba(78, 120, 92, 0.28) 0%, transparent 68%);
+      opacity: 0.68;
+    }
+
+    .challenge-forest .section-challenge {
+      position: relative;
+      z-index: 1;
+      padding-left: calc(var(--rpx) * 16);
+      padding-right: calc(var(--rpx) * 16);
+    }
+
+    .section-challenge {
+      padding-top: calc(var(--rpx) * 4);
+      padding-bottom: calc(var(--rpx) * 8);
+    }
+
+    .challenge-banner {
+      padding: calc(var(--rpx) * 22) calc(var(--rpx) * 24);
+      margin-bottom: calc(var(--rpx) * 20);
+      background: linear-gradient(145deg, #e8dcc8 0%, #d4c4a8 45%, #c4b090 100%);
+      border-radius: calc(var(--rpx) * 12);
+      box-shadow:
+        0 calc(var(--rpx) * 6) calc(var(--rpx) * 18) rgba(74, 55, 40, 0.22),
+        inset 0 calc(var(--rpx) * 2) calc(var(--rpx) * 8) rgba(255, 255, 255, 0.35);
+      border: calc(var(--rpx) * 4) solid #8b6f4a;
+      border-image: none;
+      outline: none;
+    }
+
+    .challenge-banner-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: calc(var(--rpx) * 16);
+      margin-bottom: calc(var(--rpx) * 16);
+    }
+
+    .challenge-banner-title {
+      font-size: calc(var(--rpx) * 34);
+      font-weight: 800;
+      color: #3d3020;
+      letter-spacing: calc(var(--rpx) * 1);
+      text-shadow: 0 calc(var(--rpx) * 1) 0 rgba(255, 255, 255, 0.35);
+    }
+
+    .challenge-banner-sub {
+      font-size: calc(var(--rpx) * 24);
+      color: #4a4034;
+      line-height: 1.45;
+      margin-top: calc(var(--rpx) * 6);
+      opacity: 0.92;
+    }
+
+    .challenge-progress-text {
+      flex-shrink: 0;
+      font-size: calc(var(--rpx) * 26);
+      font-weight: 700;
+      color: #2d4536;
+      white-space: nowrap;
+    }
+
+    .challenge-progress-bar {
+      height: calc(var(--rpx) * 14);
+      border-radius: calc(var(--rpx) * 999);
+      background: rgba(61, 48, 32, 0.2);
+      overflow: hidden;
+      box-shadow: inset 0 calc(var(--rpx) * 2) calc(var(--rpx) * 6) rgba(45, 58, 48, 0.15);
+    }
+
+    .challenge-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #d4b87a 0%, #b8963d 55%, #9a7b3a 100%);
+      transition: width 0.35s ease;
+    }
+
+    .challenge-avatar-preview-wrap {
+      position: relative;
+      width: calc(var(--rpx) * 64);
+      height: calc(var(--rpx) * 80);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .challenge-avatar-icon-wrap {
+      width: calc(var(--rpx) * 72);
+      height: calc(var(--rpx) * 72);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(165deg, #f0faf5 0%, #dff2e8 100%);
+      border: calc(var(--rpx) * 3) solid #3d5245;
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) rgba(45, 58, 48, 0.2);
+      box-sizing: border-box;
+    }
+
+    .challenge-avatar-icon-wrap[hidden] {
+      display: none !important;
+    }
+
+    .challenge-avatar-icon-emoji {
+      font-size: calc(var(--rpx) * 40);
+      line-height: 1;
+    }
+
+    .challenge-avatar-photo {
+      width: calc(var(--rpx) * 72);
+      height: calc(var(--rpx) * 72);
+      border-radius: 50%;
+      object-fit: cover;
+      border: calc(var(--rpx) * 3) solid #3d5245;
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) rgba(45, 58, 48, 0.28);
+      background: #e8f0ea;
+    }
+
+    .challenge-avatar-photo[hidden] {
+      display: none !important;
+    }
+
+    .challenge-avatar-photo-hint {
+      font-size: calc(var(--rpx) * 22);
+      color: var(--br-muted);
+      line-height: 1.5;
+      margin: calc(var(--rpx) * -8) 0 calc(var(--rpx) * 14);
+    }
+
+    .challenge-avatar-upload-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: calc(var(--rpx) * 26);
+      font-weight: 700;
+      color: #fff;
+      padding: calc(var(--rpx) * 18) calc(var(--rpx) * 20);
+      border-radius: calc(var(--rpx) * 999);
+      margin-bottom: calc(var(--rpx) * 12);
+      background: linear-gradient(145deg, #7b9fc9 0%, #4a6fa8 100%);
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) rgba(45, 58, 48, 0.2);
+    }
+
+    .challenge-avatar-upload-btn:active {
+      transform: scale(0.99);
+    }
+
+    .challenge-avatar-revert-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: calc(var(--rpx) * 24);
+      font-weight: 600;
+      color: var(--br-brown-soft);
+      padding: calc(var(--rpx) * 14) calc(var(--rpx) * 18);
+      border-radius: calc(var(--rpx) * 999);
+      margin-bottom: calc(var(--rpx) * 20);
+      background: linear-gradient(145deg, #f5efe4 0%, #e8dcc8 100%);
+      border: calc(var(--rpx) * 2) solid rgba(139, 111, 74, 0.35);
+    }
+
+    .challenge-avatar-divider {
+      height: calc(var(--rpx) * 2);
+      margin: calc(var(--rpx) * 8) 0 calc(var(--rpx) * 20);
+      background: linear-gradient(90deg, transparent, rgba(139, 111, 74, 0.25), transparent);
+      border: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* BeadLittle 人卡片 + Edit */
+    .challenge-avatar-row {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--rpx) * 20);
+      margin-bottom: calc(var(--rpx) * 18);
+      padding: calc(var(--rpx) * 16) calc(var(--rpx) * 20);
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: calc(var(--rpx) * 28);
+      box-shadow: 0 calc(var(--rpx) * 8) calc(var(--rpx) * 24) rgba(45, 58, 48, 0.12);
+      border: calc(var(--rpx) * 2) solid rgba(255, 255, 255, 0.95);
+    }
+
+    .challenge-avatar-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .challenge-avatar-heading {
+      font-size: calc(var(--rpx) * 28);
+      font-weight: 700;
+      color: var(--br-brown-dark);
+      margin-bottom: calc(var(--rpx) * 14);
+    }
+
+    .challenge-avatar-edit {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: calc(var(--rpx) * 24);
+      font-weight: 700;
+      color: #fff;
+      padding: calc(var(--rpx) * 14) calc(var(--rpx) * 28);
+      border-radius: calc(var(--rpx) * 999);
+      background: linear-gradient(145deg, #5d8a5a 0%, #3d6a45 100%);
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) rgba(45, 58, 48, 0.25);
+    }
+
+    .challenge-avatar-edit:active {
+      transform: scale(0.98);
+    }
+
+    .challenge-avatar-popover {
+      display: none;
+      margin-bottom: calc(var(--rpx) * 18);
+      padding: calc(var(--rpx) * 20) calc(var(--rpx) * 22);
+      background: rgba(250, 253, 249, 0.96);
+      border-radius: calc(var(--rpx) * 28);
+      border: calc(var(--rpx) * 2) solid rgba(184, 150, 61, 0.35);
+      box-shadow: 0 calc(var(--rpx) * 12) calc(var(--rpx) * 32) rgba(45, 58, 48, 0.14);
+    }
+
+    .challenge-avatar-popover.is-open {
+      display: block;
+    }
+
+    .challenge-avatar-popover-title {
+      font-size: calc(var(--rpx) * 28);
+      font-weight: 700;
+      color: var(--br-brown);
+      margin-bottom: calc(var(--rpx) * 16);
+    }
+
+    .challenge-preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--rpx) * 12);
+      margin-bottom: calc(var(--rpx) * 20);
+    }
+
+    .challenge-preset-btn {
+      border: calc(var(--rpx) * 3) solid transparent;
+      padding: calc(var(--rpx) * 12);
+      border-radius: calc(var(--rpx) * 18);
+      background: #dce8df;
+      min-width: calc(var(--rpx) * 80);
+      min-height: calc(var(--rpx) * 80);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .challenge-preset-btn.is-active {
+      border-color: #b8963d;
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 12) var(--br-shadow-brown);
+    }
+
+    .challenge-preset-emoji {
+      display: block;
+      font-size: calc(var(--rpx) * 36);
+      line-height: 1;
+    }
+
+    .challenge-popover-close {
+      margin-top: calc(var(--rpx) * 18);
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: calc(var(--rpx) * 26);
+      font-weight: 600;
+      color: var(--br-brown-soft);
+      padding: calc(var(--rpx) * 16);
+      border-radius: calc(var(--rpx) * 999);
+      background: linear-gradient(145deg, #eaf6ef 0%, #d8ebe3 100%);
+    }
+
+    /* Trail: Dirt path floating on forest floor */
+    .challenge-road-wrap {
+      position: relative;
+      padding: calc(var(--rpx) * 36) 0 calc(var(--rpx) * 32);
+      min-height: calc(var(--rpx) * 200);
+      overflow: visible;
+    }
+
+    .challenge-road-svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .challenge-road-path--edge {
+      fill: none;
+      stroke: #5a4634;
+      stroke-width: calc(var(--rpx) * 22);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.88;
+    }
+
+    .challenge-road-path--main {
+      fill: none;
+      stroke: #c4a07a;
+      stroke-width: calc(var(--rpx) * 13);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .challenge-road-path--inner {
+      fill: none;
+      stroke: rgba(235, 220, 188, 0.65);
+      stroke-width: calc(var(--rpx) * 5);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .challenge-steps {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--rpx) * 4);
+    }
+
+    .challenge-step {
+      display: flex;
+      align-items: center;
+      min-height: calc(var(--rpx) * 132);
+      position: relative;
+    }
+
+    .challenge-step--left {
+      justify-content: flex-start;
+      padding-left: calc(var(--rpx) * 6);
+    }
+
+    .challenge-step--right {
+      justify-content: flex-end;
+      padding-right: calc(var(--rpx) * 6);
+    }
+
+    .challenge-step--center {
+      justify-content: center;
+    }
+
+    .challenge-dots {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(var(--rpx) * -8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--rpx) * 8);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .challenge-dot {
+      width: calc(var(--rpx) * 12);
+      height: calc(var(--rpx) * 8);
+      border-radius: 40% 60% 55% 45%;
+      background: rgba(180, 210, 90, 0.55);
+      box-shadow: 0 calc(var(--rpx) * 2) calc(var(--rpx) * 4) rgba(45, 58, 48, 0.15);
+      transform: rotate(-18deg);
+    }
+
+    /* Level node base */
+    .challenge-node {
+      position: relative;
+      width: calc(var(--rpx) * 136);
+      height: calc(var(--rpx) * 136);
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: calc(var(--rpx) * 4);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Stepping stones */
+    .challenge-node--stone {
+      border-radius: 46% 46% 42% 42% / 48% 48% 52% 52%;
+      background:
+        radial-gradient(ellipse 90% 55% at 40% 28%, rgba(255, 255, 255, 0.38) 0%, transparent 55%),
+        linear-gradient(165deg, #c8cfc4 0%, #9ca396 45%, #7d8478 100%);
+      box-shadow:
+        0 calc(var(--rpx) * 8) calc(var(--rpx) * 22) rgba(45, 50, 42, 0.28),
+        inset 0 calc(var(--rpx) * 3) calc(var(--rpx) * 10) rgba(255, 255, 255, 0.25);
+      border: calc(var(--rpx) * 2) solid rgba(90, 95, 88, 0.35);
+    }
+
+    /* Stumps */
+    .challenge-node--stump {
+      border-radius: 50% 50% 14% 14% / 48% 48% 20% 20%;
+      background:
+        radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.22) 0%, transparent 38%),
+        linear-gradient(180deg, #d9c9a8 0%, #9a7b52 38%, #6b5238 92%);
+      box-shadow:
+        0 calc(var(--rpx) * 8) calc(var(--rpx) * 22) rgba(74, 55, 40, 0.32),
+        inset 0 calc(var(--rpx) * -4) calc(var(--rpx) * 12) rgba(45, 35, 25, 0.15);
+      border: calc(var(--rpx) * 2) solid rgba(107, 82, 56, 0.5);
+    }
+
+    .challenge-node--stump::before {
+      content: '';
+      position: absolute;
+      left: 14%;
+      right: 14%;
+      top: 14%;
+      height: 26%;
+      border-radius: 50%;
+      background: radial-gradient(circle, #e8dcc8 0%, #c4a77a 70%, #8b7355 100%);
+      opacity: 0.85;
+      pointer-events: none;
+      box-shadow: inset 0 calc(var(--rpx) * 2) calc(var(--rpx) * 4) rgba(61, 48, 32, 0.2);
+    }
+
+    /* Logs / Fallen branches */
+    .challenge-node--branch {
+      width: calc(var(--rpx) * 152);
+      height: calc(var(--rpx) * 118);
+      border-radius: 42% 46% 44% 40%;
+      background:
+        linear-gradient(98deg, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #c9a882 0%, #8b6744 55%, #5c4228 100%);
+      box-shadow:
+        0 calc(var(--rpx) * 8) calc(var(--rpx) * 22) rgba(45, 40, 30, 0.26),
+        inset 0 calc(var(--rpx) * 4) calc(var(--rpx) * 12) rgba(255, 255, 255, 0.12);
+      border: calc(var(--rpx) * 2) solid rgba(92, 66, 40, 0.4);
+    }
+
+    .challenge-node--branch::after {
+      content: '';
+      position: absolute;
+      left: 18%;
+      right: 55%;
+      top: 22%;
+      bottom: 38%;
+      border-radius: 40%;
+      background: rgba(61, 48, 32, 0.12);
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    /* Mushroom平台 */
+    .challenge-node--mushroom {
+      border-radius: 50%;
+      background: linear-gradient(180deg, #f0e8dc 0%, #d8cbb8 70%, #c4b5a0 100%);
+      box-shadow: 0 calc(var(--rpx) * 6) calc(var(--rpx) * 18) rgba(45, 58, 48, 0.18);
+      border: calc(var(--rpx) * 2) solid rgba(180, 160, 130, 0.45);
+    }
+
+    .challenge-node--mushroom::before {
+      content: '';
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: calc(var(--rpx) * -18);
+      height: calc(var(--rpx) * 52);
+      border-radius: 50% 50% 42% 42%;
+      background: linear-gradient(180deg, #f4a4b0 0%, #e0666e 55%, #c94e58 100%);
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 12) rgba(180, 60, 70, 0.28);
+      pointer-events: none;
+    }
+
+    .challenge-node--mushroom::after {
+      content: '';
+      position: absolute;
+      left: 25%;
+      right: 25%;
+      top: calc(var(--rpx) * -6);
+      height: calc(var(--rpx) * 14);
+      border-radius: 40%;
+      background: rgba(255, 255, 255, 0.35);
+      pointer-events: none;
+    }
+
+    .challenge-node:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+
+    .challenge-node-num {
+      position: relative;
+      z-index: 1;
+      font-size: calc(var(--rpx) * 32);
+      font-weight: 800;
+      color: #fdfaf4;
+      line-height: 1;
+      text-shadow: 0 calc(var(--rpx) * 2) calc(var(--rpx) * 4) rgba(45, 35, 25, 0.55);
+    }
+
+    .challenge-node--stone .challenge-node-num {
+      color: #2d3228;
+      text-shadow: 0 calc(var(--rpx) * 1) 0 rgba(255, 255, 255, 0.4);
+    }
+
+    .challenge-node-label {
+      position: relative;
+      z-index: 1;
+      font-size: calc(var(--rpx) * 20);
+      font-weight: 600;
+      color: #fdfaf4;
+      max-width: calc(var(--rpx) * 120);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-shadow: 0 calc(var(--rpx) * 1) calc(var(--rpx) * 3) rgba(45, 35, 25, 0.55);
+    }
+
+    .challenge-node--stone .challenge-node-label {
+      color: var(--br-brown-dark);
+      text-shadow: none;
+    }
+
+    .challenge-thumb {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1px;
+      width: calc(var(--rpx) * 52);
+      height: calc(var(--rpx) * 52);
+      padding: 2px;
+      border-radius: calc(var(--rpx) * 8);
+      background: rgba(45, 58, 48, 0.35);
+      box-sizing: border-box;
+      box-shadow: inset 0 calc(var(--rpx) * 2) calc(var(--rpx) * 6) rgba(0, 0, 0, 0.2);
+    }
+
+    .challenge-thumb-cell {
+      border-radius: 1px;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .challenge-node--current {
+      filter: brightness(1.04);
+      box-shadow:
+        0 calc(var(--rpx) * 12) calc(var(--rpx) * 30) rgba(201, 162, 39, 0.45),
+        0 0 0 calc(var(--rpx) * 4) rgba(255, 230, 160, 0.75);
+      transform: scale(1.06);
+    }
+
+    .challenge-node--current.challenge-node--stone {
+      box-shadow:
+        0 calc(var(--rpx) * 12) calc(var(--rpx) * 28) rgba(201, 162, 39, 0.4),
+        0 0 0 calc(var(--rpx) * 4) rgba(255, 220, 140, 0.8);
+    }
+
+    .challenge-node--current:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    .challenge-node--done .challenge-node-num {
+      color: #fff8e0;
+    }
+
+    .challenge-node--done.challenge-node--stone .challenge-node-num {
+      color: var(--br-gold-deep);
+    }
+
+    .challenge-node--locked {
+      cursor: not-allowed;
+      opacity: 0.68;
+      filter: grayscale(0.35) brightness(0.92);
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) rgba(45, 58, 48, 0.12);
+    }
+
+    .challenge-node-badge {
+      position: absolute;
+      top: calc(var(--rpx) * -2);
+      right: calc(var(--rpx) * -2);
+      width: calc(var(--rpx) * 36);
+      height: calc(var(--rpx) * 36);
+      border-radius: 50%;
+      background: linear-gradient(145deg, #d4b87a, #9a7b3a);
+      color: #fff;
+      font-size: calc(var(--rpx) * 22);
+      line-height: calc(var(--rpx) * 36);
+      text-align: center;
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 10) var(--br-shadow-brown);
+      z-index: 2;
+    }
+
+    .challenge-node-badge--lock {
+      background: linear-gradient(145deg, #6b6b6b, #4a4a4a);
+      font-size: calc(var(--rpx) * 18);
+    }
+
+    /* Bead character on path */
+    .challenge-avatar-float {
+      position: absolute;
+      z-index: 4;
+      pointer-events: none;
+      left: 0;
+      top: 0;
+      transition: left 0.55s cubic-bezier(0.33, 1, 0.68, 1), top 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+      filter: drop-shadow(0 calc(var(--rpx) * 6) calc(var(--rpx) * 12) rgba(45, 40, 30, 0.35));
+    }
+
+    .challenge-avatar-float-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--rpx) * 4);
+      animation: challenge-avatar-bob 2.4s ease-in-out infinite;
+    }
+
+    @keyframes challenge-avatar-bob {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(calc(var(--rpx) * -5));
+      }
+    }
+
+    .challenge-avatar-float-figure {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(var(--rpx) * 65);
+    }
+
+    .challenge-avatar-float-photo {
+      width: calc(var(--rpx) * 58);
+      height: calc(var(--rpx) * 58);
+      border-radius: 50%;
+      object-fit: cover;
+      border: calc(var(--rpx) * 3) solid #fdfaf4;
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 12) rgba(45, 40, 30, 0.35);
+      background: #e8f0ea;
+    }
+
+    .challenge-avatar-float-icon {
+      width: calc(var(--rpx) * 58);
+      height: calc(var(--rpx) * 58);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(165deg, #f7fcf9 0%, #e8f4ef 100%);
+      font-size: calc(var(--rpx) * 32);
+      line-height: 1;
+      box-sizing: border-box;
+    }
+
+    .challenge-avatar-float-icon[hidden] {
+      display: none !important;
+    }
+
+    .challenge-avatar-float-caption {
+      font-size: calc(var(--rpx) * 20);
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 calc(var(--rpx) * 1) calc(var(--rpx) * 4) rgba(45, 40, 30, 0.65);
+      white-space: nowrap;
+    }
+
+    /* Blueprint Fullscreen */
+    .level-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: calc(var(--rpx) * 20) calc(var(--rpx) * 24)
+        calc(var(--rpx) * 160 + env(safe-area-inset-bottom, 0px));
+    }
+
+    .level-meta-card {
+      background: #fff;
+      border-radius: calc(var(--rpx) * 28);
+      padding: calc(var(--rpx) * 22) calc(var(--rpx) *24);
+      margin-bottom: calc(var(--rpx) * 20);
+      box-shadow: 0 calc(var(--rpx) * 8) calc(var(--rpx) * 24) var(--br-shadow);
+      border: calc(var(--rpx) * 2) solid rgba(232, 244, 239, 0.95);
+    }
+
+    .level-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(var(--rpx) * 12);
+      flex-wrap: wrap;
+    }
+
+    .level-meta-name {
+      font-size: calc(var(--rpx) * 32);
+      font-weight: 700;
+      color: var(--br-brown-dark);
+    }
+
+    .pattern-board-wrap {
+      background: linear-gradient(165deg, #fafdf9 0%, #eef6f1 100%);
+      border-radius: calc(var(--rpx) * 28);
+      padding: calc(var(--rpx) * 20);
+      box-shadow: 0 calc(var(--rpx) * 10) calc(var(--rpx) * 28) var(--br-shadow);
+      border: calc(var(--rpx) * 2) solid rgba(255, 255, 255, 0.9);
+      overflow: auto;
+      max-height: min(68vh, calc(var(--rpx) * 900));
+    }
+
+    .pattern-board-wrap--interactive {
+      cursor: pointer;
+      transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .pattern-board-wrap--interactive:hover {
+      box-shadow: 0 calc(var(--rpx) * 14) calc(var(--rpx) * 36) rgba(74, 55, 40, 0.16);
+    }
+
+    .pattern-board-wrap--interactive:active {
+      transform: scale(0.995);
+    }
+
+    .pattern-board-wrap--interactive:focus {
+      outline: none;
+    }
+
+    .pattern-board-wrap--interactive:focus-visible {
+      box-shadow:
+        0 0 0 calc(var(--rpx) * 4) rgba(123, 180, 140, 0.65),
+        0 calc(var(--rpx) * 10) calc(var(--rpx) * 28) var(--br-shadow);
+    }
+
+    .pattern-board {
+      display: grid;
+      gap: 1px;
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto;
+      background: #b8c9be;
+      padding: calc(var(--rpx) * 8);
+      border-radius: calc(var(--rpx) * 12);
+      box-sizing: border-box;
+    }
+
+    .pattern-board--zoom {
+      padding: calc(var(--rpx) * 12);
+      border-radius: calc(var(--rpx) * 16);
+    }
+
+    /* Red border: "Follow this to make beads" (level thumbnail + popup same) */
+    .pattern-board-wrap--interactive .pattern-board {
+      border: calc(var(--rpx) * 3) solid #d82a2a;
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 16) rgba(216, 42, 42, 0.15);
+    }
+
+    /* Level blueprint zoom: Mask covers viewport, content width matches main site (430px phone), centered on large screens */
+    .level-pattern-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px)
+        env(safe-area-inset-left, 0px);
+      box-sizing: border-box;
+    }
+
+    .level-pattern-lightbox[hidden] {
+      display: none !important;
+    }
+
+    .level-pattern-lightbox__backdrop {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      z-index: 0;
+      background: rgba(45, 52, 48, 0.48);
+      backdrop-filter: blur(calc(var(--rpx) * 2));
+    }
+
+    .level-pattern-lightbox__panel {
+      position: relative;
+      z-index: 1;
+      width: min(100%, var(--page-max));
+      max-width: var(--page-max);
+      height: 100%;
+      align-self: stretch;
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 0;
+      background: linear-gradient(165deg, #fafdf9 0%, #eef6f1 100%);
+      box-shadow: none;
+      border: none;
+      padding: calc(var(--rpx) * 16) calc(var(--rpx) * 16) calc(var(--rpx) * 12);
+      box-sizing: border-box;
+    }
+
+    .level-pattern-lightbox__close {
+      position: absolute;
+      top: calc(var(--rpx) * 12);
+      right: calc(var(--rpx) * 12);
+      width: calc(var(--rpx) * 64);
+      height: calc(var(--rpx) * 64);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: calc(var(--rpx) * 36);
+      line-height: 1;
+      color: var(--br-brown-soft);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 calc(var(--rpx) * 4) calc(var(--rpx) * 14) var(--br-shadow);
+      transition: transform 0.15s ease;
+    }
+
+    .level-pattern-lightbox__close:active {
+      transform: scale(0.95);
+    }
+
+    .level-pattern-lightbox__title {
+      flex-shrink: 0;
+      margin: 0 calc(var(--rpx) * 72) calc(var(--rpx) * 10) 0;
+      font-size: calc(var(--rpx) * 30);
+      font-weight: 800;
+      color: var(--br-brown-dark);
+    }
+
+    .level-pattern-lightbox__board-wrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      max-height: none;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: calc(var(--rpx) * 10);
+      border-radius: calc(var(--rpx) * 20);
+      background: rgba(255, 255, 255, 0.55);
+      margin-bottom: calc(var(--rpx) * 12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .level-pattern-lightbox__board-wrap .pattern-board--zoom {
+      flex-shrink: 0;
+      margin: auto;
+      border: calc(var(--rpx) * 4) solid #d82a2a;
+      border-radius: calc(var(--rpx) * 18);
+      box-shadow: 0 calc(var(--rpx) * 6) calc(var(--rpx) * 22) rgba(216, 42, 42, 0.2);
+    }
+
+    .level-pattern-colors {
+      flex-shrink: 0;
+    }
+
+    .level-pattern-colors-title {
+      font-size: calc(var(--rpx) * 24);
+      font-weight: 700;
+      color: var(--br-brown-dark);
+      margin-bottom: calc(var(--rpx) * 12);
+    }
+
+    .level-pattern-colors-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--rpx) * 12);
+    }
+
+    .level-pattern-color-chip {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--rpx) * 10);
+      padding: calc(var(--rpx) * 8) calc(var(--rpx) * 14);
+      border-radius: calc(var(--rpx) * 999);
+      background: rgba(255, 255, 255, 0.9);
+      border: calc(var(--rpx) * 2) solid rgba(123, 155, 135, 0.28);
+      box-shadow: 0 calc(var(--rpx) * 2) calc(var(--rpx) * 8) rgba(45, 58, 48, 0.08);
+    }
+
+    .level-pattern-color-swatch {
+      flex-shrink: 0;
+      width: calc(var(--rpx) * 36);
+      height: calc(var(--rpx) * 36);
+      border-radius: 50%;
+      border: calc(var(--rpx) * 2) solid rgba(45, 45, 45, 0.12);
+      box-shadow: inset 0 calc(var(--rpx) * 2) calc(var(--rpx) * 6) rgba(0, 0, 0, 0.12);
+    }
+
+    .level-pattern-color-label {
+      font-size: calc(var(--rpx) * 22);
+      font-weight: 600;
+      color: var(--br-muted);
+    }
+
+    .pattern-cell {
+      aspect-ratio: 1;
+      min-width: calc(var(--rpx) * 14);
+      border-radius: calc(var(--rpx) * 3);
+      box-shadow: inset 0 calc(var(--rpx) * -2) calc(var(--rpx) * 4) rgba(0, 0, 0, 0.06);
+    }
+
+    .pattern-cell--empty {
+      background: #e8f0ea !important;
+      box-shadow: inset 0 calc(var(--rpx) * 2) calc(var(--rpx) * 4) rgba(255, 255, 255, 0.7);
+    }
+
+    /* Popup fills as needed: Grid cells set to fixed px by JS, no longer constrained by min-width */
+    .pattern-cell.pattern-cell--fitpx {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .level-tip {
+      margin-top: calc(var(--rpx) * 16);
+      font-size: calc(var(--rpx) * 24);
+      color: var(--br-muted);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .level-footer {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: var(--page-max);
+      z-index: 95;
+      padding: calc(var(--rpx) * 16) calc(var(--rpx) * 24);
+      padding-bottom: calc(var(--rpx) * 16 + env(safe-area-inset-bottom, 0px));
+      background: linear-gradient(180deg, rgba(248, 252, 249, 0.92) 0%, #e8f4ef 100%);
+      border-top: calc(var(--rpx) * 2) solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 calc(var(--rpx) * -8) calc(var(--rpx) * 24) var(--br-shadow);
+    }
+
+    .level-complete-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: calc(var(--rpx) * 30);
+      font-weight: 700;
+      color: #fff;
+      padding: calc(var(--rpx) * 22) calc(var(--rpx) * 24);
+      border-radius: calc(var(--rpx) * 999);
+      background: linear-gradient(145deg, #d4b87a 0%, #b8963d 55%, #9a7b3a 100%);
+      box-shadow: 0 calc(var(--rpx) * 8) calc(var(--rpx) * 22) var(--br-shadow-brown);
+      transition: transform 0.15s ease;
+    }
+
+    .level-complete-btn:active {
+      transform: scale(0.98);
+    }
   </style>
 </head>
 <body>
-  <!-- 彩虹拼豆工坊：首页 + 详情 + 购物车 + 个人中心（单页视图切换） -->
+  <!-- RainbowBead工坊：Home + 详情 + Cart + Profile（Single-page view switch） -->
   <div class="page">
-    <!-- 全局右上角：购物车、我的（各视图均显示） -->
-    <div class="top-action-icons" aria-label="快捷入口">
-      <button type="button" class="icon-action-btn" id="top-btn-cart" title="购物车" aria-label="购物车">
+    <!-- Global top right：Cart、My（Visible in all views） -->
+    <div class="top-action-icons" aria-label="快捷Entry">
+      <button type="button" class="icon-action-btn" id="top-btn-cart" title="Cart" aria-label="Cart">
         <span class="cart-icon-badge" id="cart-icon-badge" aria-hidden="true">0</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="#6b5238" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M6 6h15l-1.5 9h-12z" />
@@ -1333,7 +2448,7 @@
           <path d="M6 6 5 3H2" />
         </svg>
       </button>
-      <button type="button" class="icon-action-btn" id="top-btn-profile" title="我的主页" aria-label="我的主页">
+      <button type="button" class="icon-action-btn" id="top-btn-profile" title="My Profile" aria-label="My Profile">
         <svg viewBox="0 0 24 24" fill="none" stroke="#6b5238" stroke-width="2" aria-hidden="true">
           <circle cx="12" cy="8" r="4" />
           <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round" />
@@ -1341,9 +2456,9 @@
       </button>
     </div>
 
-    <!-- ========== 视图：首页（原 Tab + 内容） ========== -->
+    <!-- ========== View：Home（原 Tab + 内容） ========== -->
     <div id="view-home" class="app-view app-view--active">
-    <!-- ========== 1. 顶部导航（品牌薄荷绿背景 + 标题） ========== -->
+    <!-- ========== 1. Top Navigation（Brand mint green background + title） ========== -->
     <div class="nav-shell">
       <div class="nav-bar">
         <div class="nav-title-wrap">
@@ -1358,13 +2473,13 @@
 
     <div class="main-scroll" id="main-scroll">
       <div class="tab-panels">
-        <!-- 板块 1：产品 -->
+        <!-- Section 1：Products -->
         <div class="tab-panel is-active" id="tab-panel-products" data-panel="products" role="tabpanel">
-      <!-- ========== 2. 拼豆商品展示区（2 列网格） ========== -->
+      <!-- ========== 2. Bead Products (2-Column Grid) ========== -->
       <div class="section">
         <div class="section-head">
-          <span class="section-badge">热卖</span>
-          <span class="section-title">拼豆小铺</span>
+          <span class="section-badge">Best Seller</span>
+          <span class="section-title">Bead Shop</span>
         </div>
         <div class="product-grid">
           <div class="product-card product-card--clickable" data-product-id="p1" role="button" tabindex="0">
@@ -1372,10 +2487,10 @@
               <img class="product-img" src="Image/set-72.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22/%3E';" />
             </div>
             <div class="product-body">
-              <span class="product-name">七十二色豆套装</span>
+              <span class="product-name">72-Color Bead Set</span>
               <div class="product-row">
                 <span class="product-price"><span class="yen">¥</span>200</span>
-                <span class="product-tag tag-lav">套装</span>
+                <span class="product-tag tag-lav">Set</span>
               </div>
             </div>
           </div>
@@ -1384,10 +2499,10 @@
               <img class="product-img" src="Image/refill-red.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22/%3E';" />
             </div>
             <div class="product-body">
-              <span class="product-name">红色单色补充包</span>
+              <span class="product-name">Red Single Color Pack</span>
               <div class="product-row">
                 <span class="product-price"><span class="yen">¥</span>6</span>
-                <span class="product-tag tag-mix">红色</span>
+                <span class="product-tag tag-mix">Red</span>
               </div>
             </div>
           </div>
@@ -1396,10 +2511,10 @@
               <img class="product-img" src="Image/refill-yellow.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22/%3E';" />
             </div>
             <div class="product-body">
-              <span class="product-name">黄色单色补充包</span>
+              <span class="product-name">Yellow Single Color Pack</span>
               <div class="product-row">
                 <span class="product-price"><span class="yen">¥</span>6</span>
-                <span class="product-tag tag-lemon">黄色</span>
+                <span class="product-tag tag-lemon">Yellow</span>
               </div>
             </div>
           </div>
@@ -1408,10 +2523,10 @@
               <img class="product-img" src="Image/refill-blue.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22/%3E';" />
             </div>
             <div class="product-body">
-              <span class="product-name">蓝色单色补充包</span>
+              <span class="product-name">Blue Single Color Pack</span>
               <div class="product-row">
                 <span class="product-price"><span class="yen">¥</span>6</span>
-                <span class="product-tag tag-sky">蓝色</span>
+                <span class="product-tag tag-sky">Blue</span>
               </div>
             </div>
           </div>
@@ -1420,10 +2535,10 @@
               <img class="product-img" src="Image/refill-green.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22/%3E';" />
             </div>
             <div class="product-body">
-              <span class="product-name">绿色单色补充包</span>
+              <span class="product-name">Green Single Color Pack</span>
               <div class="product-row">
                 <span class="product-price"><span class="yen">¥</span>6</span>
-                <span class="product-tag tag-mint">绿色</span>
+                <span class="product-tag tag-mint">Green</span>
               </div>
             </div>
           </div>
@@ -1432,10 +2547,10 @@
               <img class="product-img" src="Image/refill-pink.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22/%3E';" />
             </div>
             <div class="product-body">
-              <span class="product-name">粉色单色补充包</span>
+              <span class="product-name">Pink Single Color Pack</span>
               <div class="product-row">
                 <span class="product-price"><span class="yen">¥</span>6</span>
-                <span class="product-tag tag-peach">粉色</span>
+                <span class="product-tag tag-peach">Pink</span>
               </div>
             </div>
           </div>
@@ -1445,14 +2560,91 @@
       <div class="safe-bottom"></div>
         </div>
 
-        <!-- 板块 2：安全玩豆指南 -->
+        <!-- Section：Bead Challenge（Forest Trail） -->
+        <div class="tab-panel" id="tab-panel-challenge" data-panel="challenge" role="tabpanel">
+          <div class="challenge-forest">
+            <div class="challenge-forest-sky" aria-hidden="true"></div>
+            <div class="challenge-forest-trees" aria-hidden="true"></div>
+            <div class="section section-challenge">
+              <div class="challenge-banner">
+                <div class="challenge-banner-top">
+                  <div>
+                    <div class="challenge-banner-title">Misty Forest · Bead Adventure</div>
+                    <p class="challenge-banner-sub">Venture along the forest path, where stones, stumps and mushrooms hide crafting blueprints. Bring your bead character and explore together!</p>
+                  </div>
+                  <span class="challenge-progress-text" id="challenge-progress-label" aria-live="polite">Progress: 0/12</span>
+                </div>
+                <div class="challenge-progress-bar" aria-hidden="true">
+                  <div class="challenge-progress-fill" id="challenge-progress-fill"></div>
+                </div>
+              </div>
+              <div class="challenge-avatar-row">
+                <div class="challenge-avatar-preview-wrap">
+                  <div class="challenge-avatar-icon-wrap" id="challenge-avatar-icon-preview-wrap">
+                    <span class="challenge-avatar-icon-emoji" id="challenge-avatar-icon-preview" role="img"></span>
+                  </div>
+                  <img class="challenge-avatar-photo" id="challenge-avatar-photo-preview" alt="卡通Avatar" hidden decoding="async" />
+                </div>
+                <div class="challenge-avatar-info">
+                  <div class="challenge-avatar-heading">My Adventure Avatar</div>
+                  <button type="button" class="challenge-avatar-edit" id="challenge-avatar-edit-btn">Change Avatar</button>
+                </div>
+              </div>
+              <div class="challenge-avatar-popover" id="challenge-avatar-popover" aria-hidden="true">
+                <div class="challenge-avatar-popover-title">Photo to Cartoon Avatar</div>
+                <p class="challenge-avatar-photo-hint">
+                  Choose a clear portrait or half-body photo. Browser creates cartoon effect with <strong>flat colors + outlines</strong> locally (not cloud AI, results vary).
+                </p>
+                <input type="file" id="challenge-avatar-file" class="sr-only" accept="image/*" />
+                <button type="button" class="challenge-avatar-upload-btn" id="challenge-avatar-upload-btn">
+                  Select Photo to Generate
+                </button>
+                <button type="button" class="challenge-avatar-revert-btn" id="challenge-avatar-revert-bead-btn">
+                  Use Icon Instead
+                </button>
+                <div class="challenge-avatar-divider" aria-hidden="true"></div>
+                <div class="challenge-avatar-popover-title">Choose an Icon</div>
+                <p class="challenge-avatar-photo-hint" style="margin-top: 0;">
+                  Select an icon or upload a photo; saved avatar will match your profile, no need to set twice.
+                </p>
+                <div class="challenge-preset-row" id="challenge-preset-row"></div>
+                <button type="button" class="challenge-popover-close" id="challenge-avatar-popover-close">Done</button>
+              </div>
+              <div class="challenge-road-wrap" id="challenge-road-wrap">
+                <svg
+                  class="challenge-road-svg"
+                  id="challenge-road-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path id="challenge-road-path-edge" class="challenge-road-path--edge" />
+                  <path id="challenge-road-path-main" class="challenge-road-path--main" />
+                  <path id="challenge-road-path-inner" class="challenge-road-path--inner" />
+                </svg>
+                <div class="challenge-steps" id="challenge-steps-root"></div>
+                <div class="challenge-avatar-float" id="challenge-avatar-float" aria-hidden="true">
+                  <div class="challenge-avatar-float-inner">
+                    <div class="challenge-avatar-float-figure">
+                      <div class="challenge-avatar-float-icon challenge-avatar-icon-emoji" id="challenge-avatar-float-icon" aria-hidden="true"></div>
+                      <img class="challenge-avatar-float-photo" id="challenge-avatar-float-photo" alt="" hidden decoding="async" />
+                    </div>
+                    <span class="challenge-avatar-float-caption" id="challenge-avatar-float-caption">Here</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="safe-bottom"></div>
+        </div>
+
+        <!-- Section 2：Safe Beading Guide -->
         <div class="tab-panel" id="tab-panel-safety" data-panel="safety" role="tabpanel">
-      <!-- ========== 3. 安全玩豆指南 ========== -->
+      <!-- ========== 3. Safe Beading Guide ========== -->
       <div class="section section-safety">
         <div class="safety-banner">
           <span class="safety-banner-icon">🛡️</span>
           <div class="safety-banner-texts">
-            <span class="safety-banner-title">玩豆指南</span>
+            <span class="safety-banner-title">Beading Safety Guide</span>
           </div>
         </div>
 
@@ -1465,8 +2657,8 @@
               <img class="safety-hero" src="Image/Safety-1.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
             </div>
             <div class="safety-lines">
-              <span class="safety-line1">3岁以下请勿单独玩拼豆</span>
-              <span class="safety-line2">小零件有误吞风险，请家长全程看护。</span>
+              <span class="safety-line1">Not for children under 3</span>
+              <span class="safety-line2">Small parts pose choking hazard. Parental supervision required.</span>
             </div>
           </div>
           <div class="safety-item">
@@ -1477,8 +2669,8 @@
               <img class="safety-hero" src="Image/Safety-2.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
             </div>
             <div class="safety-lines">
-              <span class="safety-line1">不要把拼豆放进嘴巴、鼻子、耳朵</span>
-              <span class="safety-line2">只用来拼图案，不当零食、不当玩具塞入孔洞。</span>
+              <span class="safety-line1">Do not put beads in mouth, nose or ears</span>
+              <span class="safety-line2">Use only for crafting patterns. Not a snack or toy for holes.</span>
             </div>
           </div>
           <div class="safety-item">
@@ -1489,8 +2681,8 @@
               <img class="safety-hero" src="Image/Safety-3.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
             </div>
             <div class="safety-lines">
-              <span class="safety-line1">拼豆时请家长陪同</span>
-              <span class="safety-line2">一起数数、认颜色，又安全又开心。</span>
+              <span class="safety-line1">Parents should accompany during crafting</span>
+              <span class="safety-line2">Count together, learn colors - fun and safe!</span>
             </div>
           </div>
           <div class="safety-item">
@@ -1501,8 +2693,8 @@
               <img class="safety-hero" src="Image/Safety-4.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
             </div>
             <div class="safety-lines">
-              <span class="safety-line1">玩完把豆子收进盒子</span>
-              <span class="safety-line2">避免滚落地上，防止小宝宝捡到误吞。</span>
+              <span class="safety-line1">Store beads in container after play</span>
+              <span class="safety-line2">Prevent rolling on floor to avoid choking hazards.</span>
             </div>
           </div>
           <div class="safety-item">
@@ -1513,9 +2705,9 @@
               <img class="safety-hero" src="Image/Safety-5.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
             </div>
             <div class="safety-lines">
-              <span class="safety-line1">熨烫须知</span>
+              <span class="safety-line1">Ironing Instructions</span>
               <div class="safety-bullets-row">
-                <span class="safety-bullets-text">熨烫时避免使用美纹纸，可直接在拼豆板上熨烫</span>
+                <span class="safety-bullets-text">Avoid painter's tape when ironing. Iron directly on bead boards.</span>
               </div>
             </div>
           </div>
@@ -1527,9 +2719,9 @@
               <img class="safety-hero" src="Image/Safety-6.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
             </div>
             <div class="safety-lines">
-              <span class="safety-line1">工具建议</span>
+              <span class="safety-line1">Tool Recommendations</span>
               <div class="safety-bullets-row">
-                <span class="safety-bullets-text">熨烫避免使用三无熨斗，建议使用烫画机</span>
+                <span class="safety-bullets-text">Avoid low-quality irons. Heat press recommended.</span>
               </div>
             </div>
           </div>
@@ -1538,44 +2730,44 @@
       <div class="safe-bottom"></div>
         </div>
 
-        <!-- 板块 3：护眼贴士 -->
+        <!-- Section 3：Safe Crafting -->
         <div class="tab-panel" id="tab-panel-eye" data-panel="eye" role="tabpanel">
-      <!-- ========== 4. 保护眼睛指南 ========== -->
+      <!-- ========== 4. Eye Care Guide ========== -->
       <div class="section section-eye">
         <div class="section-head section-head-eye">
           <span class="section-title"></span>
         </div>
 
         <div class="eye-card">
-          <span class="eye-card-title">🪑 建议玩豆姿势</span>
+          <span class="eye-card-title">🪑 Recommended Crafting Posture</span>
           <img class="eye-card-img" src="Image/Eye-Protection-step1.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
           <div class="eye-bullets">
             <div class="eye-bullet">
               <span class="eye-dot">●</span>
-              <span class="eye-bullet-text">眼睛与拼豆作品保持适当距离，不要凑太近</span>
+              <span class="eye-bullet-text">Keep proper distance from bead work. Don't get too close.</span>
             </div>
             <div class="eye-bullet">
               <span class="eye-dot">●</span>
-              <span class="eye-bullet-text">腰背挺直，双脚平放，不弯腰、不驼背</span>
+              <span class="eye-bullet-text">Sit straight with feet flat. No slouching.</span>
             </div>
             <div class="eye-bullet">
               <span class="eye-dot">●</span>
-              <span class="eye-bullet-text">请勿躺着、趴着或歪着身体玩拼豆</span>
+              <span class="eye-bullet-text">Do not lie down, lie on stomach, or lean while crafting.</span>
             </div>
           </div>
         </div>
 
         <div class="eye-card">
-          <span class="eye-card-title">👀 注意玩豆时长</span>
+          <span class="eye-card-title">👀 Recommended Crafting Duration</span>
           <img class="eye-card-img" src="Image/Eye-Protection-step2.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22/%3E';" />
           <div class="eye-bullets">
             <div class="eye-bullet">
               <span class="eye-dot">●</span>
-              <span class="eye-bullet-text">建议单次玩豆时长不超过20分钟</span>
+              <span class="eye-bullet-text">Limit crafting sessions to 20 minutes max.</span>
             </div>
             <div class="eye-bullet">
               <span class="eye-dot">●</span>
-              <span class="eye-bullet-text">建议玩豆后多进行户外活动，放松眼部</span>
+              <span class="eye-bullet-text">Take outdoor breaks to rest eyes after crafting.</span>
             </div>
           </div>
         </div>
@@ -1588,11 +2780,11 @@
     </div>
     <!-- /view-home -->
 
-    <!-- ========== 视图：商品详情 ========== -->
+    <!-- ========== View：Product Details ========== -->
     <div id="view-detail" class="app-view" aria-hidden="true">
       <div class="detail-top">
-        <button type="button" class="detail-back" id="detail-back-btn">返回</button>
-        <h1 class="detail-nav-title" id="detail-nav-title">商品详情</h1>
+        <button type="button" class="detail-back" id="detail-back-btn">Back</button>
+        <h1 class="detail-nav-title" id="detail-nav-title">Product Details</h1>
       </div>
       <div class="detail-scroll" id="detail-scroll">
         <div class="detail-hero-wrap">
@@ -1600,47 +2792,99 @@
         </div>
         <div class="detail-info-card">
           <div class="detail-info-head">
-            <span class="detail-info-name" id="detail-info-name">商品名称</span>
+            <span class="detail-info-name" id="detail-info-name">Product Name</span>
             <span class="product-price"><span class="yen">¥</span><span id="detail-info-price">0</span></span>
           </div>
-          <span class="product-tag" id="detail-info-tag">标签</span>
+          <span class="product-tag" id="detail-info-tag">Tag</span>
         </div>
         <div class="detail-info-card">
-          <div class="detail-desc-title">宝贝介绍</div>
+          <div class="detail-desc-title">Description</div>
           <p class="detail-desc-text" id="detail-desc-main"></p>
           <ul class="detail-spec-list" id="detail-spec-list"></ul>
         </div>
         <div class="detail-info-card">
-          <div class="detail-comments-title">家长说 · 小朋友说</div>
+          <div class="detail-comments-title">Reviews</div>
           <div id="detail-comments-root"></div>
         </div>
       </div>
       <div class="detail-fixed-actions">
-        <button type="button" class="detail-btn-cart" id="detail-add-cart-btn">加入购物车</button>
-        <button type="button" class="detail-btn-buy" id="detail-buy-btn">立即购买</button>
+        <button type="button" class="detail-btn-cart" id="detail-add-cart-btn">Add to Cart</button>
+        <button type="button" class="detail-btn-buy" id="detail-buy-btn">Buy Now</button>
       </div>
     </div>
 
-    <!-- ========== 视图：购物车 ========== -->
+    <div id="view-level" class="app-view" aria-hidden="true">
+      <div class="detail-top">
+        <button type="button" class="detail-back" id="level-back-btn">Back</button>
+        <h1 class="detail-nav-title" id="level-nav-title">Level  1 </h1>
+      </div>
+      <div class="level-scroll" id="level-scroll">
+        <div class="level-meta-card">
+          <div class="level-meta-row">
+            <span class="level-meta-name" id="level-meta-name">Pattern Name</span>
+            <span class="product-tag tag-lav" id="level-meta-tag">Beginner</span>
+          </div>
+          <p class="detail-desc-text" id="level-meta-spec" style="margin-top: calc(var(--rpx) * 12); margin-bottom: 0;"></p>
+        </div>
+        <div
+          class="pattern-board-wrap pattern-board-wrap--interactive"
+          id="pattern-board-wrap-btn"
+          role="button"
+          tabindex="0"
+          aria-label="点击放大查看图纸与 Color参考"
+        >
+          <div class="pattern-board" id="pattern-board-root" role="img" aria-label="Bead图纸网格"></div>
+        </div>
+        <p class="level-tip">Once you finish, tap 'Mark Done' below to unlock the next challenge; press Back anytime to continue your journey.</p>
+      </div>
+      <div class="level-footer">
+        <button type="button" class="level-complete-btn" id="level-complete-btn">Mark Done</button>
+      </div>
+      <div id="level-pattern-lightbox" class="level-pattern-lightbox" hidden aria-hidden="true">
+        <button
+          type="button"
+          class="level-pattern-lightbox__backdrop"
+          id="level-pattern-lightbox-backdrop"
+          aria-label="闭放大View"
+        ></button>
+        <div
+          class="level-pattern-lightbox__panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="level-pattern-lightbox-title"
+        >
+          <button type="button" class="level-pattern-lightbox__close" id="level-pattern-lightbox-close" aria-label="Close">
+            ×
+          </button>
+          <h2 class="level-pattern-lightbox__title" id="level-pattern-lightbox-title">Detail</h2>
+          <div class="level-pattern-lightbox__board-wrap" id="level-pattern-lightbox-board-wrap">
+            <div class="pattern-board pattern-board--zoom" id="pattern-board-zoom" role="img" aria-label="Full-Screen"></div>
+          </div>
+          <div class="level-pattern-colors" id="level-pattern-colors-root" aria-label="Color Needed"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== View：Cart ========== -->
     <div id="view-cart" class="app-view" aria-hidden="true">
       <div class="subpage-top">
-        <button type="button" class="detail-back" id="cart-back-btn">返回</button>
-        <h1 class="subpage-title">我的购物车</h1>
+        <button type="button" class="detail-back" id="cart-back-btn">Back</button>
+        <h1 class="subpage-title">My Cart</h1>
       </div>
       <div class="cart-page-body">
         <div class="cart-scroll" id="cart-scroll-area">
           <div id="cart-empty-block" class="cart-empty">
             <div class="cart-empty-emoji">🛒</div>
-            <p class="cart-empty-text">购物车还是空空的～<br />去挑几款喜欢的拼豆吧！</p>
+            <p class="cart-empty-text">Cart is empty~<br />Go pick some beads you like!</p>
           </div>
           <div id="cart-items-root" class="is-hidden" aria-live="polite"></div>
           <div id="cart-suggest-wrap">
-            <div class="cart-section-title">猜你喜欢（示例）</div>
+            <div class="cart-section-title">Guess You Like (Demo)</div>
             <div class="cart-row">
               <img class="cart-row-thumb" src="images/set-72.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22/%3E';" />
               <div class="cart-row-info">
-                <div class="cart-row-name">彩虹软糖豆</div>
-                <div class="cart-row-meta">混色 · ¥28 · 仅展示</div>
+                <div class="cart-row-name">Rainbow Gummy Beads</div>
+                <div class="cart-row-meta">Mixed Color · ¥28 · For Demo Only</div>
               </div>
             </div>
           </div>
@@ -1648,60 +2892,74 @@
         <div class="cart-footer-fixed" id="cart-footer-fixed">
           <div class="cart-footer-inner">
             <div class="cart-footer-total">合计：<span id="cart-total-display">¥0</span></div>
-            <button type="button" class="cart-footer-checkout" id="cart-checkout-btn">去结算</button>
+            <button type="button" class="cart-footer-checkout" id="cart-checkout-btn">Go to Checkout</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ========== 视图：个人中心 ========== -->
+    <!-- ========== View：Profile ========== -->
     <div id="view-profile" class="app-view" aria-hidden="true">
       <div class="profile-header">
         <div class="profile-user-row">
-          <img class="profile-avatar" src="images/avatar-user.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22/%3E';" />
+          <div class="profile-avatar-slot">
+            <div class="profile-avatar-icon-wrap" id="profile-avatar-icon-wrap">
+              <span class="profile-avatar-emoji" id="profile-avatar-emoji" role="img" aria-label="Avatar"></span>
+            </div>
+            <img
+              class="profile-avatar profile-avatar--sync-photo"
+              id="profile-avatar-photo"
+              alt="Avatar"
+              hidden
+              decoding="async"
+            />
+          </div>
           <div>
-            <div class="profile-nickname">小豆友 123</div>
-            <div class="profile-bio">爱拼豆、爱彩虹 · 和家长一起动手更开心 ✨</div>
+            <div class="profile-nickname">Little Beads Crafter</div>
+            <div class="profile-bio">Love Bead、Love Rainbow · Love Beads ✨</div>
           </div>
         </div>
+        <p class="profile-avatar-sync-tip">Avatar syncs with Challenge page automatically. Change avatar once in Challenge to update both.</p>
+        <button type="button" class="profile-avatar-shortcut" id="profile-go-avatar-settings">Go to Challenge page to set avatar</button>
       </div>
       <div class="profile-scroll" id="profile-scroll">
         <div id="profile-main-panel" class="profile-main-panel">
           <div class="profile-menu-card">
-            <button type="button" class="profile-menu-item" id="profile-go-orders">我的订单 <span class="chev">›</span></button>
-            <button type="button" class="profile-menu-item" id="profile-go-address">收货地址 <span class="chev">›</span></button>
-            <button type="button" class="profile-menu-item" id="profile-go-fav">我的收藏 <span class="chev">›</span></button>
-            <button type="button" class="profile-menu-item" id="profile-go-settings">设置 <span class="chev">›</span></button>
+            <button type="button" class="profile-menu-item" id="profile-go-orders">My Orders<span class="chev">›</span></button>
+            <button type="button" class="profile-menu-item" id="profile-go-address">My Address<span class="chev">›</span></button>
+            <button type="button" class="profile-menu-item" id="profile-go-fav">My Favorites<span class="chev">›</span></button>
+            <button type="button" class="profile-menu-item" id="profile-go-settings">Settings<span class="chev">›</span></button>
           </div>
         </div>
         <div id="profile-orders-panel" class="profile-orders-panel">
-          <button type="button" class="detail-back" id="orders-back-btn" style="margin-bottom: calc(var(--rpx) * 20);">返回个人中心</button>
-          <div class="detail-desc-title">我的订单</div>
-          <p class="detail-desc-text">以下为演示订单列表，后续可对接真实数据。</p>
+          <button type="button" class="detail-back" id="orders-back-btn" style="margin-bottom: calc(var(--rpx) * 20);">Back to Profile</button>
+          <div class="detail-desc-title">My Orders</div>
+          <p class="detail-desc-text">Below are demo order records. Ready for real data integration.</p>
           <div class="order-card">
-            <div class="order-card-status">已完成</div>
-            <div class="order-card-row">订单号：RB20260411001</div>
-            <div class="order-card-row">彩虹软糖豆 ×1 · ¥28</div>
+            <div class="order-card-status">Completed</div>
+            <div class="order-card-row">Order #：RB20260411001</div>
+            <div class="order-card-row">Rainbow Gummy Beads ×1 · ¥28</div>
           </div>
           <div class="order-card">
-            <div class="order-card-status">待发货</div>
-            <div class="order-card-row">订单号：RB20260411002</div>
-            <div class="order-card-row">薄荷星星豆 ×2 · ¥64</div>
+            <div class="order-card-status">Awaiting Shipment</div>
+            <div class="order-card-row">Order #：RB20260411002</div>
+            <div class="order-card-row">Mint Star Beads ×2 · ¥64</div>
           </div>
           <div class="order-card">
-            <div class="order-card-status" style="color: var(--br-green-text);">运输中</div>
-            <div class="order-card-row">订单号：RB20260408088</div>
-            <div class="order-card-row">蜜桃圆豆豆 ×1 · ¥26</div>
+            <div class="order-card-status" style="color: var(--br-green-text);">In Transit</div>
+            <div class="order-card-row">Order #：RB20260408088</div>
+            <div class="order-card-row">Peach Round Beads ×1 · ¥26</div>
           </div>
         </div>
       </div>
     </div>
 
-    <nav class="bottom-nav" id="primary-bottom-nav" aria-label="页面切换">
+    <nav class="bottom-nav" id="primary-bottom-nav" aria-label=" Page面切换">
       <div class="bottom-nav-inner">
-        <button type="button" class="bottom-nav-btn is-active" data-tab="products" role="tab" aria-selected="true" aria-controls="tab-panel-products">LIHO产品</button>
-        <button type="button" class="bottom-nav-btn" data-tab="safety" role="tab" aria-selected="false" aria-controls="tab-panel-safety">玩豆指南</button>
-        <button type="button" class="bottom-nav-btn" data-tab="eye" role="tab" aria-selected="false" aria-controls="tab-panel-eye">安心拼豆</button>
+        <button type="button" class="bottom-nav-btn is-active" data-tab="products" role="tab" aria-selected="true" aria-controls="tab-panel-products">Products</button>
+        <button type="button" class="bottom-nav-btn" data-tab="challenge" role="tab" aria-selected="false" aria-controls="tab-panel-challenge">Challenge</button>
+        <button type="button" class="bottom-nav-btn" data-tab="safety" role="tab" aria-selected="false" aria-controls="tab-panel-safety">Safety Guide</button>
+        <button type="button" class="bottom-nav-btn" data-tab="eye" role="tab" aria-selected="false" aria-controls="tab-panel-eye">Advice</button>
       </div>
     </nav>
   </div>
@@ -1710,7 +2968,7 @@
 
   <script>
     /**
-     * 单页路由：首页 Tab、商品详情、购物车、个人中心；顶部购物车/我的入口
+     * 单 Page路由：Home Tab、Product Details、Cart、Profile；顶部Cart/MyEntry
      */
     (function () {
       var scrollEl = document.getElementById('main-scroll');
@@ -1720,101 +2978,882 @@
       var bottomNav = document.getElementById('primary-bottom-nav');
       var panels = {
         products: document.getElementById('tab-panel-products'),
+        challenge: document.getElementById('tab-panel-challenge'),
         safety: document.getElementById('tab-panel-safety'),
         eye: document.getElementById('tab-panel-eye')
       };
 
+      var CHALLENGE_STORAGE_KEY = 'lihoChallengeFurthestV1';
+      var AVATAR_STORAGE_KEY = 'lihoBeadAvatarV1';
+      /** 可选ChallengeLittle 图标（emoji，可改为 { src, label } 使用 PNG） */
+      var AVATAR_ICONS = [
+        { emoji: '🐻', label: 'Bear' },
+        { emoji: '🦊', label: 'Fox' },
+        { emoji: '🐰', label: 'Bunny' },
+        { emoji: '🐤', label: 'Chick' },
+        { emoji: '🦉', label: 'Owl' },
+        { emoji: '🍄', label: 'Mushroom' },
+        { emoji: '🌲', label: 'Little Tree' },
+        { emoji: '✨', label: 'Star' }
+      ];
+      var BEAD_PALETTE = {
+        '0': null,
+        '1': '#f4a4b0',
+        '2': '#e85d5d',
+        '3': '#f5d76e',
+        '4': '#7bc96f',
+        '5': '#6eb5d4',
+        '6': '#c9a88a',
+        '7': '#b8d9c8',
+        '8': '#9b7ed9',
+        '9': '#4a3728'
+      };
+
+      /**
+       * Challenge图纸：0=Empty，1–9=颜 Color；Increasing difficulty
+       */
+      var CHALLENGE_LEVELS = [
+        { id: 1, name: 'Little Heart', tag: 'Beginner', tagClass: 'tag-mint', spec: '5×5 · 3  Color', rows: ['01110', '11111', '11111', '01110', '00100'] },
+        { id: 2, name: 'Lemon', tag: 'Beginner', tagClass: 'tag-mint', spec: '6×6 · 3  Color', rows: ['002200', '023320', '233332', '233332', '023320', '002200'] },
+        { id: 3, name: 'Clover', tag: 'Beginner', tagClass: 'tag-lemon', spec: '7×7 · 4  Color', rows: ['0033300', '0333330', '3334333', '3334333', '3334333', '0333330', '0033300'] },
+        { id: 4, name: 'Little Mushroom', tag: 'Intermediate', tagClass: 'tag-peach', spec: '8×8 · 4  Color', rows: ['00022000', '00022200', '00222220', '02222220', '00242420', '00242420', '00233320', '00033000'] },
+        { id: 5, name: 'Duckling', tag: 'Intermediate', tagClass: 'tag-sky', spec: '9×9 · 5  Color', rows: ['000333000', '003333300', '033333330', '033223330', '032222330', '003222300', '000323000', '000303000', '000090000'] },
+        { id: 6, name: 'Christmas Tree', tag: 'Intermediate', tagClass: 'tag-mint', spec: '10×10 · 5  Color', rows: ['0004444000', '0004944000', '0004994000', '0049999400', '0049999400', '0499999940', '0499999940', '0006660000', '0006660000', '0006660000'] },
+        { id: 7, name: 'Christmas Stocking', tag: 'Intermediate', tagClass: 'tag-mix', spec: '10×10 · 6  Color', rows: ['0011111100', '0122222210', '0122222210', '0122922210', '0122222210', '0122222210', '0012222100', '0011111100', '0011111100', '0011111100'] },
+        { id: 8, name: 'Butterfly', tag: 'Challenge', tagClass: 'tag-lav', spec: '11×11 · 6  Color', rows: ['00008800000', '00088888000', '00888888800', '08888888880', '08880808880', '08888888880', '08880808880', '08888888880', '00888888800', '00088888000', '00008800000'] },
+        { id: 9, name: 'Strawberry Bunny', tag: 'Challenge', tagClass: 'tag-peach', spec: '12×12 · 6  Color', rows: ['000044444000', '000444444400', '004424442440', '004442442440', '004444444440', '000444444400', '000056665000', '000056665000', '000565556500', '005655556550', '000555555500', '000055555000'] },
+        { id: 10, name: 'Coffee Cup', tag: 'Challenge', tagClass: 'tag-cocoa', spec: '12×12 · 7  Color', rows: ['000000000000', '001111111000', '012222221000', '012222221000', '012222221000', '001111111000', '000111100000', '000911190000', '009111190000', '009111190000', '009111190000', '000999990000'] },
+        { id: 11, name: 'Star Gift', tag: 'Master', tagClass: 'tag-lav', spec: '13×13 · 7  Color', rows: ['0000030000000', '0000333000000', '0003333300000', '0333333333000', '0033933330000', '0003393000000', '3333393333330', '0003393000000', '0033933330000', '0333333333000', '0003333300000', '0000333000000', '0000030000000'] },
+        { id: 12, name: 'Castle Night', tag: 'Master', tagClass: 'tag-lav', spec: '14×14 · 8  Color', rows: ['00000555000000', '00005555500000', '00055999550000', '00559999995000', '05599999999500', '05999999999950', '05999999999950', '05994444499550', '05994000409550', '05994000409550', '05994000409550', '05994444499550', '05599999999500', '00555555555000'] }
+      ];
+
+      function getFurthestCleared() {
+        try {
+          var n = parseInt(localStorage.getItem(CHALLENGE_STORAGE_KEY), 10);
+          if (isNaN(n) || n < 0) return 0;
+          return Math.min(n, CHALLENGE_LEVELS.length);
+        } catch (e) {
+          return 0;
+        }
+      }
+
+      function setFurthestCleared(n) {
+        try {
+          localStorage.setItem(CHALLENGE_STORAGE_KEY, String(Math.max(0, Math.min(CHALLENGE_LEVELS.length, n))));
+        } catch (e) {}
+      }
+
+      function getAvatarConfig() {
+        var base = { mode: 'bead', photoDataUrl: '', preset: 0 };
+        try {
+          var raw = localStorage.getItem(AVATAR_STORAGE_KEY);
+          if (raw) {
+            var o = JSON.parse(raw);
+            if (o && typeof o === 'object') {
+              base.preset = Math.max(0, Math.min(AVATAR_ICONS.length - 1, parseInt(o.preset, 10) || 0));
+              if (
+                o.mode === 'photo' &&
+                typeof o.photoDataUrl === 'string' &&
+                o.photoDataUrl.indexOf('data:image') === 0 &&
+                o.photoDataUrl.length > 80
+              ) {
+                base.mode = 'photo';
+                base.photoDataUrl = o.photoDataUrl;
+              }
+            }
+          }
+        } catch (e) {}
+        return base;
+      }
+
+      function saveAvatarConfig(cfg) {
+        try {
+          var normalized = {
+            mode:
+              cfg.mode === 'photo' && cfg.photoDataUrl && String(cfg.photoDataUrl).indexOf('data:image') === 0
+                ? 'photo'
+                : 'bead',
+            photoDataUrl:
+              cfg.mode === 'photo' && cfg.photoDataUrl && String(cfg.photoDataUrl).indexOf('data:image') === 0
+                ? String(cfg.photoDataUrl)
+                : '',
+            preset: Math.max(0, Math.min(AVATAR_ICONS.length - 1, parseInt(cfg.preset, 10) || 0))
+          };
+          if (normalized.mode !== 'photo') {
+            normalized.mode = 'bead';
+            normalized.photoDataUrl = '';
+          }
+          localStorage.setItem(AVATAR_STORAGE_KEY, JSON.stringify(normalized));
+        } catch (e) {
+          showToast('Save failed: Cartoon image too large or storage full. Please use a smaller photo~');
+        }
+      }
+
+      function clampByte(x) {
+        x = x | 0;
+        return x < 0 ? 0 : x > 255 ? 255 : x;
+      }
+
+      /** 本地 Canvas：Slight saturation boost + 分 Color + Sobel Outlines，Simulate卡通Illustration */
+      function imageToCartoonDataUrl(img, maxSide, jpegQuality) {
+        maxSide = maxSide || 200;
+        jpegQuality = jpegQuality == null ? 0.78 : jpegQuality;
+        var w = img.naturalWidth || img.width;
+        var h = img.naturalHeight || img.height;
+        if (!w || !h) throw new Error('bad image');
+        var scale = Math.min(maxSide / w, maxSide / h, 1);
+        var tw = Math.max(1, Math.round(w * scale));
+        var th = Math.max(1, Math.round(h * scale));
+        var canvas = document.createElement('canvas');
+        canvas.width = tw;
+        canvas.height = th;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, tw, th);
+        var id = ctx.getImageData(0, 0, tw, th);
+        var d = id.data;
+        var levels = 7;
+        var step = 255 / (levels - 1);
+        var i;
+        for (i = 0; i < d.length; i += 4) {
+          var r = d[i];
+          var g = d[i + 1];
+          var b = d[i + 2];
+          var avg = (r + g + b) / 3;
+          r = clampByte(avg + (r - avg) * 1.18);
+          g = clampByte(avg + (g - avg) * 1.18);
+          b = clampByte(avg + (b - avg) * 1.18);
+          d[i] = Math.round(r / step) * step;
+          d[i + 1] = Math.round(g / step) * step;
+          d[i + 2] = Math.round(b / step) * step;
+        }
+        var gray = new Float32Array(tw * th);
+        var x;
+        var y;
+        for (y = 0; y < th; y++) {
+          for (x = 0; x < tw; x++) {
+            i = (y * tw + x) * 4;
+            gray[y * tw + x] = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+          }
+        }
+        var out = ctx.createImageData(tw, th);
+        var od = out.data;
+        var thresh = 40;
+        for (y = 1; y < th - 1; y++) {
+          for (x = 1; x < tw - 1; x++) {
+            var idx = y * tw + x;
+            var gx =
+              -gray[idx - tw - 1] -
+              2 * gray[idx - 1] -
+              gray[idx + tw - 1] +
+              gray[idx - tw + 1] +
+              2 * gray[idx + 1] +
+              gray[idx + tw + 1];
+            var gy =
+              -gray[idx - tw - 1] -
+              2 * gray[idx - tw] -
+              gray[idx - tw + 1] +
+              gray[idx + tw - 1] +
+              2 * gray[idx + tw] +
+              gray[idx + tw + 1];
+            var mag = Math.sqrt(gx * gx + gy * gy);
+            var p = idx * 4;
+            if (mag > thresh) {
+              od[p] = 52;
+              od[p + 1] = 42;
+              od[p + 2] = 38;
+              od[p + 3] = 255;
+            } else {
+              od[p] = d[p];
+              od[p + 1] = d[p + 1];
+              od[p + 2] = d[p + 2];
+              od[p + 3] = 255;
+            }
+          }
+        }
+        for (y = 0; y < th; y++) {
+          for (x = 0; x < tw; x++) {
+            if (y === 0 || y === th - 1 || x === 0 || x === tw - 1) {
+              i = (y * tw + x) * 4;
+              od[i] = d[i];
+              od[i + 1] = d[i + 1];
+              od[i + 2] = d[i + 2];
+              od[i + 3] = 255;
+            }
+          }
+        }
+        ctx.putImageData(out, 0, 0);
+        return canvas.toDataURL('image/jpeg', jpegQuality);
+      }
+
+      function processAvatarPhotoFile(file) {
+        if (!file || !/^image\//.test(file.type)) {
+          showToast('Please select an image~');
+          return;
+        }
+        showToast('Generating cartoon avatar, please wait...');
+        var reader = new FileReader();
+        reader.onload = function () {
+          var url = reader.result;
+          var img = new Image();
+          img.onload = function () {
+            try {
+              var dataUrl = imageToCartoonDataUrl(img, 200, 0.78);
+              if (dataUrl.length > 2200000) {
+                dataUrl = imageToCartoonDataUrl(img, 150, 0.68);
+              }
+              if (dataUrl.length > 2400000) {
+                dataUrl = imageToCartoonDataUrl(img, 120, 0.62);
+              }
+              var cfg = getAvatarConfig();
+              cfg.mode = 'photo';
+              cfg.photoDataUrl = dataUrl;
+              saveAvatarConfig(cfg);
+              refreshChallengeAvatars();
+              syncAvatarPopoverUI();
+              showToast('Cartoon avatar saved~');
+              requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                  positionChallengeAvatarFloat();
+                  updateChallengeRoadPath();
+                });
+              });
+            } catch (err) {
+              showToast('Processing failed. Please try another photo~');
+            }
+          };
+          img.onerror = function () {
+            showToast('Cannot read this image~');
+          };
+          img.src = url;
+        };
+        reader.onerror = function () {
+          showToast('Failed to read file~');
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function applyIconAvatarToElements(cfg) {
+        var presetIdx = Math.max(0, Math.min(AVATAR_ICONS.length - 1, cfg.preset || 0));
+        var item = AVATAR_ICONS[presetIdx];
+        var label = item.label || 'Avatar';
+        var prevEl = document.getElementById('challenge-avatar-icon-preview');
+        var floatEl = document.getElementById('challenge-avatar-float-icon');
+        if (prevEl) {
+          prevEl.textContent = item.emoji;
+          prevEl.setAttribute('aria-label', label);
+        }
+        if (floatEl) {
+          floatEl.textContent = item.emoji;
+          floatEl.setAttribute('aria-label', label);
+        }
+      }
+
+      function refreshProfileAvatarDisplay() {
+        var cfg = getAvatarConfig();
+        var wrapI = document.getElementById('profile-avatar-icon-wrap');
+        var imgP = document.getElementById('profile-avatar-photo');
+        var emojiEl = document.getElementById('profile-avatar-emoji');
+        var isPhoto = cfg.mode === 'photo' && cfg.photoDataUrl;
+        if (isPhoto) {
+          if (wrapI) wrapI.hidden = true;
+          if (imgP) {
+            imgP.hidden = false;
+            imgP.src = cfg.photoDataUrl;
+          }
+        } else {
+          if (wrapI) wrapI.hidden = false;
+          if (imgP) {
+            imgP.hidden = true;
+            imgP.removeAttribute('src');
+          }
+          if (emojiEl) {
+            var presetIdx = Math.max(0, Math.min(AVATAR_ICONS.length - 1, cfg.preset || 0));
+            var item = AVATAR_ICONS[presetIdx];
+            emojiEl.textContent = item.emoji;
+            emojiEl.setAttribute('aria-label', item.label || 'Avatar');
+          }
+        }
+      }
+
+      function refreshChallengeAvatars() {
+        var cfg = getAvatarConfig();
+        var wrapI = document.getElementById('challenge-avatar-icon-preview-wrap');
+        var imgP = document.getElementById('challenge-avatar-photo-preview');
+        var floatIcon = document.getElementById('challenge-avatar-float-icon');
+        var imgF = document.getElementById('challenge-avatar-float-photo');
+        var isPhoto = cfg.mode === 'photo' && cfg.photoDataUrl;
+        if (isPhoto) {
+          if (wrapI) wrapI.hidden = true;
+          if (imgP) {
+            imgP.hidden = false;
+            imgP.src = cfg.photoDataUrl;
+          }
+          if (floatIcon) floatIcon.hidden = true;
+          if (imgF) {
+            imgF.hidden = false;
+            imgF.src = cfg.photoDataUrl;
+          }
+        } else {
+          if (wrapI) wrapI.hidden = false;
+          if (imgP) {
+            imgP.hidden = true;
+            imgP.removeAttribute('src');
+          }
+          if (floatIcon) floatIcon.hidden = false;
+          if (imgF) {
+            imgF.hidden = true;
+            imgF.removeAttribute('src');
+          }
+          applyIconAvatarToElements(cfg);
+        }
+        refreshProfileAvatarDisplay();
+      }
+
+      function ensureAvatarPopoverBuilt() {
+        var row = document.getElementById('challenge-preset-row');
+        if (!row || row.dataset.built === '1') return;
+        row.dataset.built = '1';
+        AVATAR_ICONS.forEach(function (item, idx) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'challenge-preset-btn';
+          b.setAttribute('data-preset', String(idx));
+          b.title = item.label || item.emoji;
+          var span = document.createElement('span');
+          span.className = 'challenge-preset-emoji';
+          span.textContent = item.emoji;
+          span.setAttribute('role', 'img');
+          span.setAttribute('aria-label', item.label || '');
+          b.appendChild(span);
+          row.appendChild(b);
+        });
+      }
+
+      function syncAvatarPopoverUI() {
+        var cfg = getAvatarConfig();
+        document.querySelectorAll('.challenge-preset-btn').forEach(function (b) {
+          var active = cfg.mode !== 'photo' && b.getAttribute('data-preset') === String(cfg.preset);
+          b.classList.toggle('is-active', active);
+        });
+      }
+
+      function positionChallengeAvatarFloat() {
+        var wrap = document.getElementById('challenge-road-wrap');
+        var floatEl = document.getElementById('challenge-avatar-float');
+        var caption = document.getElementById('challenge-avatar-float-caption');
+        if (!wrap || !floatEl) return;
+        var furthest = getFurthestCleared();
+        var targetId =
+          furthest >= CHALLENGE_LEVELS.length
+            ? CHALLENGE_LEVELS.length
+            : furthest + 1;
+        var btn = wrap.querySelector('.challenge-node[data-level-id="' + targetId + '"]');
+        if (!btn) {
+          floatEl.style.visibility = 'hidden';
+          return;
+        }
+        floatEl.style.visibility = 'visible';
+        if (caption) {
+          caption.textContent = furthest >= CHALLENGE_LEVELS.length ? '全通' : 'Here';
+        }
+        var wr = wrap.getBoundingClientRect();
+        var br = btn.getBoundingClientRect();
+        var fw = floatEl.offsetWidth;
+        var fh = floatEl.offsetHeight;
+        var left = br.left - wr.left + br.width / 2 - fw / 2;
+        var top = br.top - wr.top - fh * 0.72;
+        floatEl.style.left = Math.max(0, Math.round(left)) + 'px';
+        floatEl.style.top = Math.round(top) + 'px';
+      }
+
+      var currentLevelId = null;
+
+      function paintPatternGrid(container, rows, cellRpx, cellPxOverride) {
+        if (!container || !rows || !rows.length) return;
+        var cols = rows[0].length;
+        container.innerHTML = '';
+        var usePx = typeof cellPxOverride === 'number' && cellPxOverride > 0;
+        var px = usePx ? Math.max(4, Math.floor(cellPxOverride)) : 0;
+        if (usePx) {
+          container.style.gridTemplateColumns = 'repeat(' + cols + ', ' + px + 'px)';
+        } else {
+          container.style.gridTemplateColumns = 'repeat(' + cols + ', calc(var(--rpx) * ' + cellRpx + '))';
+        }
+        for (var r = 0; r < rows.length; r++) {
+          var line = rows[r];
+          for (var c = 0; c < line.length; c++) {
+            var ch = line.charAt(c);
+            var cell = document.createElement('div');
+            cell.className = 'pattern-cell' + (usePx ? ' pattern-cell--fitpx' : '');
+            var col = BEAD_PALETTE[ch];
+            if (col === null || typeof col === 'undefined') {
+              cell.classList.add('pattern-cell--empty');
+            } else {
+              cell.style.background = col;
+            }
+            container.appendChild(cell);
+          }
+        }
+      }
+
+      var levelLightboxRowsCache = null;
+      var levelLightboxResizeScheduled = false;
+
+      function onLevelLightboxResize() {
+        if (levelLightboxResizeScheduled) return;
+        levelLightboxResizeScheduled = true;
+        requestAnimationFrame(function () {
+          levelLightboxResizeScheduled = false;
+          layoutLevelPatternLightboxGrid();
+        });
+      }
+
+      function layoutLevelPatternLightboxGrid() {
+        if (!levelLightboxRowsCache) return;
+        var lb = document.getElementById('level-pattern-lightbox');
+        if (!lb || lb.hasAttribute('hidden')) return;
+        var wrap = document.getElementById('level-pattern-lightbox-board-wrap');
+        var zoomBoard = document.getElementById('pattern-board-zoom');
+        if (!wrap || !zoomBoard) return;
+        var rows = levelLightboxRowsCache;
+        var cols = rows[0].length;
+        var nrows = rows.length;
+
+        var wrapCs = getComputedStyle(wrap);
+        var padX = parseFloat(wrapCs.paddingLeft) + parseFloat(wrapCs.paddingRight);
+        var padY = parseFloat(wrapCs.paddingTop) + parseFloat(wrapCs.paddingBottom);
+        var innerW = wrap.clientWidth - padX;
+        var innerH = wrap.clientHeight - padY;
+
+        var gap = 1;
+        if (innerW < 40 || innerH < 40) {
+          paintPatternGrid(zoomBoard, rows, zoomCellRpxForRows(rows));
+          return;
+        }
+
+        var boardCs = getComputedStyle(zoomBoard);
+        var boardPadX = parseFloat(boardCs.paddingLeft) + parseFloat(boardCs.paddingRight);
+        var boardPadY = parseFloat(boardCs.paddingTop) + parseFloat(boardCs.paddingBottom);
+        var borderX = parseFloat(boardCs.borderLeftWidth) + parseFloat(boardCs.borderRightWidth);
+        var borderY = parseFloat(boardCs.borderTopWidth) + parseFloat(boardCs.borderBottomWidth);
+
+        var availW = innerW - boardPadX - borderX;
+        var availH = innerH - boardPadY - borderY;
+        if (availW < 16 || availH < 16) {
+          paintPatternGrid(zoomBoard, rows, zoomCellRpxForRows(rows));
+          return;
+        }
+
+        var cellW = (availW - (cols - 1) * gap) / cols;
+        var cellH = (availH - (nrows - 1) * gap) / nrows;
+        var cellPx = Math.floor(Math.min(cellW, cellH));
+        cellPx = Math.max(4, cellPx);
+        paintPatternGrid(zoomBoard, rows, zoomCellRpxForRows(rows), cellPx);
+      }
+
+      function scheduleLevelLightboxLayout() {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            layoutLevelPatternLightboxGrid();
+          });
+        });
+      }
+
+      function zoomCellRpxForRows(rows) {
+        if (!rows || !rows[0]) return 16;
+        var cols = rows[0].length;
+        if (cols > 14) return 9;
+        if (cols > 11) return 11;
+        if (cols > 8) return 13;
+        return 17;
+      }
+
+      function collectLevelPaletteKeys(rows) {
+        var seen = {};
+        var r;
+        for (r = 0; r < rows.length; r++) {
+          var line = rows[r];
+          var c;
+          for (c = 0; c < line.length; c++) {
+            var ch = line.charAt(c);
+            if (ch === '0') continue;
+            if (BEAD_PALETTE[ch]) seen[ch] = true;
+          }
+        }
+        return Object.keys(seen).sort();
+      }
+
+      function renderLevelColorStrip(root, keys) {
+        root.innerHTML = '';
+        if (!keys.length) return;
+        var title = document.createElement('div');
+        title.className = 'level-pattern-colors-title';
+        title.textContent = 'Color Needed';
+        root.appendChild(title);
+        var row = document.createElement('div');
+        row.className = 'level-pattern-colors-row';
+        var i;
+        for (i = 0; i < keys.length; i++) {
+          var ch = keys[i];
+          var hex = BEAD_PALETTE[ch];
+          var chip = document.createElement('div');
+          chip.className = 'level-pattern-color-chip';
+          var sw = document.createElement('span');
+          sw.className = 'level-pattern-color-swatch';
+          sw.style.background = hex;
+          var lab = document.createElement('span');
+          lab.className = 'level-pattern-color-label';
+          lab.textContent = ' Color No. ' + ch + ' · ' + String(hex).toUpperCase();
+          chip.appendChild(sw);
+          chip.appendChild(lab);
+          row.appendChild(chip);
+        }
+        root.appendChild(row);
+      }
+
+      var levelLightboxOnEscape = null;
+
+      function closeLevelPatternLightbox() {
+        var lb = document.getElementById('level-pattern-lightbox');
+        if (!lb || lb.hasAttribute('hidden')) return;
+        lb.setAttribute('hidden', '');
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        levelLightboxRowsCache = null;
+        window.removeEventListener('resize', onLevelLightboxResize);
+        if (levelLightboxOnEscape) {
+          document.removeEventListener('keydown', levelLightboxOnEscape);
+          levelLightboxOnEscape = null;
+        }
+      }
+
+      function openLevelPatternLightbox() {
+        if (currentLevelId == null) return;
+        var lv = CHALLENGE_LEVELS.filter(function (x) {
+          return x.id === currentLevelId;
+        })[0];
+        if (!lv) return;
+        var zoomBoard = document.getElementById('pattern-board-zoom');
+        var colorsRoot = document.getElementById('level-pattern-colors-root');
+        var lb = document.getElementById('level-pattern-lightbox');
+        if (!zoomBoard || !colorsRoot || !lb) return;
+        levelLightboxRowsCache = lv.rows;
+        renderLevelColorStrip(colorsRoot, collectLevelPaletteKeys(lv.rows));
+        lb.removeAttribute('hidden');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('resize', onLevelLightboxResize);
+        levelLightboxOnEscape = function (e) {
+          if (e.key === 'Escape') closeLevelPatternLightbox();
+        };
+        document.addEventListener('keydown', levelLightboxOnEscape);
+        scheduleLevelLightboxLayout();
+        var xbtn = document.getElementById('level-pattern-lightbox-close');
+        if (xbtn) xbtn.focus();
+      }
+
+      function paintThumb(container, rows) {
+        if (!container || !rows || !rows.length) return;
+        var cols = rows[0].length;
+        var maxSide = 8;
+        var stride = Math.max(1, Math.ceil(cols / maxSide));
+        container.innerHTML = '';
+        container.style.gridTemplateColumns = 'repeat(' + Math.ceil(cols / stride) + ', 1fr)';
+        for (var r = 0; r < rows.length; r += stride) {
+          var line = rows[r];
+          for (var c = 0; c < cols; c += stride) {
+            var cell = document.createElement('div');
+            cell.className = 'challenge-thumb-cell';
+            var ch = line.charAt(c);
+            var col = BEAD_PALETTE[ch];
+            if (col === null || typeof col === 'undefined') {
+              cell.style.background = '#e8f0ea';
+            } else {
+              cell.style.background = col;
+            }
+            container.appendChild(cell);
+          }
+        }
+      }
+
+      function refreshChallengeProgressUI() {
+        var total = CHALLENGE_LEVELS.length;
+        var done = getFurthestCleared();
+        var label = document.getElementById('challenge-progress-label');
+        var fill = document.getElementById('challenge-progress-fill');
+        if (label) label.textContent = 'Completed ' + done + '/' + total;
+        if (fill) fill.style.width = total ? (100 * done) / total + '%' : '0%';
+      }
+
+      function r1(n) {
+        return Math.round(n * 10) / 10;
+      }
+
+      /** 卡中心点序列 → 连续弯绕三次贝塞尔路径 */
+      function buildWindingRoadPath(points) {
+        if (points.length < 2) return '';
+        var d = 'M ' + r1(points[0].x) + ' ' + r1(points[0].y);
+        var i;
+        for (i = 0; i < points.length - 1; i++) {
+          var p0 = points[i];
+          var p1 = points[i + 1];
+          var dx = p1.x - p0.x;
+          var dy = p1.y - p0.y;
+          var len = Math.sqrt(dx * dx + dy * dy) || 1;
+          var nx = -dy / len;
+          var ny = dx / len;
+          var swayMag = Math.min(42, len * 0.32);
+          var sway = (i % 2 === 0 ? 1 : -1) * swayMag;
+          var cx1 = p0.x + dx * 0.32 + nx * sway;
+          var cy1 = p0.y + dy * 0.32 + ny * sway * 0.45;
+          var cx2 = p0.x + dx * 0.68 - nx * sway * 0.55;
+          var cy2 = p0.y + dy * 0.68 - ny * sway * 0.28;
+          d +=
+            ' C ' +
+            r1(cx1) +
+            ' ' +
+            r1(cy1) +
+            ' ' +
+            r1(cx2) +
+            ' ' +
+            r1(cy2) +
+            ' ' +
+            r1(p1.x) +
+            ' ' +
+            r1(p1.y);
+        }
+        return d;
+      }
+
+      function updateChallengeRoadPath() {
+        var wrap = document.getElementById('challenge-road-wrap');
+        var edge = document.getElementById('challenge-road-path-edge');
+        var main = document.getElementById('challenge-road-path-main');
+        var inner = document.getElementById('challenge-road-path-inner');
+        if (!wrap || !edge || !main || !inner) return;
+        var nodes = wrap.querySelectorAll('.challenge-node');
+        if (nodes.length < 2) {
+          edge.setAttribute('d', '');
+          main.setAttribute('d', '');
+          inner.setAttribute('d', '');
+          return;
+        }
+        var wr = wrap.getBoundingClientRect();
+        var points = [];
+        var j;
+        for (j = 0; j < nodes.length; j++) {
+          var br = nodes[j].getBoundingClientRect();
+          points.push({
+            x: (br.left + br.right) / 2 - wr.left,
+            y: (br.top + br.bottom) / 2 - wr.top
+          });
+        }
+        var d = buildWindingRoadPath(points);
+        edge.setAttribute('d', d);
+        main.setAttribute('d', d);
+        inner.setAttribute('d', d);
+      }
+
+      function renderChallengePath() {
+        var root = document.getElementById('challenge-steps-root');
+        if (!root) return;
+        var furthest = getFurthestCleared();
+        root.innerHTML = '';
+        var alignClasses = ['challenge-step--center', 'challenge-step--right', 'challenge-step--left'];
+        var nodeKinds = ['challenge-node--stone', 'challenge-node--stump', 'challenge-node--branch', 'challenge-node--mushroom'];
+        for (var i = 0; i < CHALLENGE_LEVELS.length; i++) {
+          var lv = CHALLENGE_LEVELS[i];
+          var step = document.createElement('div');
+          step.className = 'challenge-step ' + alignClasses[i % 3];
+          var unlocked = lv.id <= furthest + 1;
+          var completed = lv.id <= furthest;
+          var isCurrent = unlocked && !completed;
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'challenge-node ' + nodeKinds[i % 4];
+          btn.setAttribute('data-level-id', String(lv.id));
+          if (completed) btn.classList.add('challenge-node--done');
+          if (isCurrent) btn.classList.add('challenge-node--current');
+          if (!unlocked) {
+            btn.classList.add('challenge-node--locked');
+            btn.disabled = true;
+          }
+          if (!unlocked) {
+            var badge = document.createElement('span');
+            badge.className = 'challenge-node-badge challenge-node-badge--lock';
+            badge.textContent = '🔒';
+            btn.appendChild(badge);
+          } else if (completed) {
+            var badgeDone = document.createElement('span');
+            badgeDone.className = 'challenge-node-badge';
+            badgeDone.textContent = '✓';
+            btn.appendChild(badgeDone);
+          }
+          var num = document.createElement('span');
+          num.className = 'challenge-node-num';
+          num.textContent = String(lv.id);
+          btn.appendChild(num);
+          var thumb = document.createElement('div');
+          thumb.className = 'challenge-thumb';
+          paintThumb(thumb, lv.rows);
+          btn.appendChild(thumb);
+          var cap = document.createElement('span');
+          cap.className = 'challenge-node-label';
+          cap.textContent = lv.name;
+          btn.appendChild(cap);
+          step.appendChild(btn);
+          root.appendChild(step);
+        }
+        root.querySelectorAll('.challenge-node:not(.challenge-node--locked)').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var id = b.getAttribute('data-level-id');
+            if (id) openLevel(parseInt(id, 10));
+          });
+        });
+        refreshChallengeProgressUI();
+        refreshChallengeAvatars();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            positionChallengeAvatarFloat();
+            updateChallengeRoadPath();
+          });
+        });
+      }
+
+      function openLevel(levelId) {
+        var lv = CHALLENGE_LEVELS.filter(function (x) {
+          return x.id === levelId;
+        })[0];
+        if (!lv) return;
+        if (levelId > getFurthestCleared() + 1) {
+          showToast('Please complete the previous level first~');
+          return;
+        }
+        currentLevelId = levelId;
+        document.getElementById('level-nav-title').textContent = 'Level  ' + levelId + ' ';
+        document.getElementById('level-meta-name').textContent = lv.name;
+        var tagEl = document.getElementById('level-meta-tag');
+        tagEl.textContent = lv.tag;
+        tagEl.className = 'product-tag ' + (lv.tagClass || 'tag-mint');
+        document.getElementById('level-meta-spec').textContent = lv.spec;
+        var board = document.getElementById('pattern-board-root');
+        var cols = lv.rows[0].length;
+        var cellR = cols > 14 ? 7 : cols > 11 ? 9 : cols > 8 ? 11 : 13;
+        paintPatternGrid(board, lv.rows, cellR);
+        showView('level');
+      }
+
+      function completeCurrentLevel() {
+        if (currentLevelId == null) return;
+        var furthest = getFurthestCleared();
+        if (currentLevelId <= furthest) {
+          showToast('This level is already completed. Challenge the next one~');
+          return;
+        }
+        if (currentLevelId === furthest + 1) {
+          setFurthestCleared(furthest + 1);
+          if (furthest + 1 >= CHALLENGE_LEVELS.length) {
+            showToast('Congratulations! You completed all levels!');
+          } else {
+            showToast('Awesome! Next level unlocked~');
+          }
+          renderChallengePath();
+          return;
+        }
+        showToast('Please complete in order first~');
+      }
+
       var lastHomeTab = 'products';
-      /** 当前详情页对应的商品 id（p1–p6），用于「加入购物车」 */
+      /** 当前详情 Page对应的Product id（p1–p6），用于「Add to Cart」 */
       var currentDetailProductId = null;
-      /** localStorage 购物车键名 */
+      /** localStorage Cart键名 */
       var CART_STORAGE_KEY = 'rainbowBeadShopCartV1';
 
       var PRODUCT_DETAILS = {
         p1: {
-          name: '七十二色豆套装',
+          name: '72-Color Bead Set',
           price: '200',
-          tag: '套装',
+          tag: 'Set',
           tagClass: 'tag-lav',
           hero: 'Image/set-72.jpg',
-          desc: '一盒集齐七十二种柔和配色，入门拼豆、练配色、做小图案都很合适。配套收纳思路清晰，家长陪孩子一起开箱更有仪式感。',
-          specs: ['材质：PLA可降解环保材料（不可食用）', '规格：5mm标准融合豆', '适用年龄：建议 6 岁以上，须家长陪同', '说明：小颗粒请远离 3 岁以下幼儿'],
+          desc: '72 colors in one box, perfect for beginners learning patterns and color matching. Clear organization system makes unpacking a joy for parents and kids together.',
+          specs: ['Material: PLA biodegradable eco-plastic (not edible)', 'Size: 5mm standard fuse beads', 'Age: 6+ recommended, parental supervision required', 'Warning: Keep away from children under 3'],
           comments: [
-            { name: '豆妈 Lily', stars: '★★★★★', text: '颜色全，孩子第一次玩拼豆就选这套，分类也很方便。', avatar: 'images/cmt-01.jpg' },
-            { name: '手工角', stars: '★★★★☆', text: '套装性价比高，熨烫后平整，亲子周末必备。', avatar: 'images/cmt-02.jpg' },
-            { name: '小北 9岁', stars: '★★★★★', text: '我想把每个颜色都试一遍！', avatar: 'images/cmt-03.jpg' },
-            { name: '爷爷', stars: '★★★★★', text: '没有刺鼻味，给孙子玩放心。', avatar: 'images/cmt-04.jpg' }
+            { name: 'Bean Mom Lily', stars: '★★★★★', text: 'Complete color range, perfect first bead set for kids. Easy to organize.', avatar: 'images/cmt-01.jpg' },
+            { name: 'Craft Corner', stars: '★★★★☆', text: 'Great value set, flattens nicely after ironing. Weekend craft essential.', avatar: 'images/cmt-02.jpg' },
+            { name: 'Little Bei (9)', stars: '★★★★★', text: 'I want to try every color!', avatar: 'images/cmt-03.jpg' },
+            { name: 'Grandpa', stars: '★★★★★', text: 'No strong smell, safe for grandkids to play with.', avatar: 'images/cmt-04.jpg' }
           ]
         },
         p2: {
-          name: '红色单色补充包',
+          name: 'Red Single Color Pack',
           price: '6',
-          tag: '红色',
+          tag: 'Red',
           tagClass: 'tag-mix',
           hero: 'Image/refill-red.jpg',
-          desc: '红色单色补充包，用来补色、拼爱心、小花朵、节日主题都很好看。与套装内其他颜色混搭，作品更亮眼。',
-          specs: ['材质：PLA可降解环保材料（不可食用）', '规格：5mm标准融合豆，10克', '适用年龄：建议 6 岁以上，须家长陪同', '提示：开封后请收纳好，避免散落'],
+          desc: 'Red single color refill pack, perfect for color touch-ups, hearts, flowers, and holiday themes. Pairs beautifully with other colors for more vibrant creations.',
+          specs: ['Material: PLA biodegradable eco-plastic (not edible)', 'Size: 5mm standard fuse beads, 10g', 'Age: 6+ recommended, parental supervision required', 'Tip: Store properly after opening to prevent scattering'],
           comments: [
-            { name: '樱桃', stars: '★★★★★', text: '红色正，补色刚好，小袋不占地方。', avatar: 'images/cmt-01.jpg' },
-            { name: '阿哲爸', stars: '★★★★☆', text: '孩子做国旗配色用上了，满意。', avatar: 'images/cmt-05.jpg' },
-            { name: '小米粒', stars: '★★★★★', text: '我喜欢红色，拼了好多小爱心！', avatar: 'images/cmt-03.jpg' }
+            { name: 'Cherry', stars: '★★★★★', text: 'Perfect red, ideal for color matching. Small bag doesnt take up space.', avatar: 'images/cmt-01.jpg' },
+            { name: 'AZhe Dad', stars: '★★★★☆', text: 'Kid used it for a national flag project, very satisfied.', avatar: 'images/cmt-05.jpg' },
+            { name: 'Little Rice', stars: '★★★★★', text: 'I love red, made lots of little hearts!', avatar: 'images/cmt-03.jpg' }
           ]
         },
         p3: {
-          name: '黄色单色补充包',
+          name: 'Yellow Single Color Pack',
           price: '6',
-          tag: '黄色',
+          tag: 'Yellow',
           tagClass: 'tag-lemon',
           hero: 'Image/refill-yellow.jpg',
-          desc: '明亮温柔的黄色单色补充包，适合拼太阳、小鸭、星星点缀。和蓝色、绿色搭配，画面立刻活泼起来。',
-          specs: ['材质：PLA可降解环保材料（不可食用）', '规格：5mm标准融合豆，10克', '适用年龄：建议 6 岁以上，须家长陪同', '提示：开封后请收纳好，避免散落'],
+          desc: 'Bright and warm yellow refill pack, perfect for suns, ducks, and star accents. Pairs with blue and green for instantly lively designs.',
+          specs: ['Material: PLA biodegradable eco-plastic (not edible)', 'Size: 5mm standard fuse beads, 10g', 'Age: 6+ recommended, parental supervision required', 'Tip: Store properly after opening to prevent scattering'],
           comments: [
-            { name: '向日葵', stars: '★★★★★', text: '黄色很阳光，补色必备。', avatar: 'images/cmt-02.jpg' },
-            { name: '豆爸', stars: '★★★★★', text: '小包装便宜，孩子霍霍也不心疼。', avatar: 'images/cmt-01.jpg' },
-            { name: '果果', stars: '★★★★☆', text: '我想再要一袋～', avatar: 'images/cmt-03.jpg' }
+            { name: 'Sunflower', stars: '★★★★★', text: 'Sunny yellow, essential for contrast colors.', avatar: 'images/cmt-02.jpg' },
+            { name: 'Bean Dad', stars: '★★★★★', text: 'Affordable small packs, great for kids to use freely.', avatar: 'images/cmt-01.jpg' },
+            { name: 'Guoguo', stars: '★★★★☆', text: 'I want another bag~', avatar: 'images/cmt-03.jpg' }
           ]
         },
         p4: {
-          name: '蓝色单色补充包',
+          name: 'Blue Single Color Pack',
           price: '6',
-          tag: '蓝色',
+          tag: 'Blue',
           tagClass: 'tag-sky',
           hero: 'Image/refill-blue.jpg',
-          desc: '清爽蓝色单色补充包，适合天空、海洋、小动物眼睛等细节。颗粒圆润，拼搭手感顺滑。',
-          specs: ['材质：PLA可降解环保材料（不可食用）', '规格：5mm标准融合豆，10克', '适用年龄：建议 6 岁以上，须家长陪同', '提示：开封后请收纳好，避免散落'],
+          desc: 'Fresh blue single-color pack, perfect for sky, ocean, animal eyes and details. Smooth rounded beads for satisfying crafting.',
+          specs: ['Material: PLA biodegradable eco-plastic (not edible)', 'Size: 5mm standard fuse beads, 10g', 'Age: 6+ recommended, parental supervision required', 'Tip: Store properly after opening to prevent scattering'],
           comments: [
-            { name: '海风', stars: '★★★★★', text: '蓝色很舒服，和白色搭像云朵。', avatar: 'images/cmt-01.jpg' },
-            { name: 'Momo妈', stars: '★★★★☆', text: '补充包刚好补上孩子缺的色。', avatar: 'images/cmt-04.jpg' },
-            { name: '小洋', stars: '★★★★★', text: '我拼了大海和小鱼！', avatar: 'images/cmt-03.jpg' }
+            { name: 'Sea Breeze', stars: '★★★★★', text: 'Comfortable blue, looks like clouds with white.', avatar: 'images/cmt-01.jpg' },
+            { name: 'Momo Mom', stars: '★★★★☆', text: 'Perfect pack to fill in missing colors.', avatar: 'images/cmt-04.jpg' },
+            { name: 'Little Yang', stars: '★★★★★', text: 'I made the ocean and little fish!', avatar: 'images/cmt-03.jpg' }
           ]
         },
         p5: {
-          name: '绿色单色补充包',
+          name: 'Green Single Color Pack',
           price: '6',
-          tag: '绿色',
+          tag: 'Green',
           tagClass: 'tag-mint',
           hero: 'Image/refill-green.jpg',
-          desc: '自然清新的绿色单色补充包，适合草地、树叶、小青蛙等造型。环保 PLA 材质，亲子手工更安心。',
-          specs: ['材质：PLA可降解环保材料（不可食用）', '规格：5mm标准融合豆，10克', '适用年龄：建议 6 岁以上，须家长陪同', '提示：开封后请收纳好，避免散落'],
+          desc: 'Natural fresh green pack, ideal for grass, leaves, frogs and nature designs. Eco-friendly PLA material for safer parent-child crafts.',
+          specs: ['Material: PLA biodegradable eco-plastic (not edible)', 'Size: 5mm standard fuse beads, 10g', 'Age: 6+ recommended, parental supervision required', 'Tip: Store properly after opening to prevent scattering'],
           comments: [
-            { name: '四叶草', stars: '★★★★★', text: '绿色很嫩，做植物主题超好用。', avatar: 'images/cmt-02.jpg' },
-            { name: '森森', stars: '★★★★★', text: '和黄色搭像春天。', avatar: 'images/cmt-01.jpg' },
-            { name: '豆丁姥姥', stars: '★★★★☆', text: '小袋方便带出门。', avatar: 'images/cmt-05.jpg' }
+            { name: 'Clover', stars: '★★★★★', text: 'Fresh green, perfect for plant themes.', avatar: 'images/cmt-02.jpg' },
+            { name: 'Sensen', stars: '★★★★★', text: 'Looks like spring when paired with yellow.', avatar: 'images/cmt-01.jpg' },
+            { name: 'Douding Grandma', stars: '★★★★☆', text: 'Small bag convenient for travel.', avatar: 'images/cmt-05.jpg' }
           ]
         },
         p6: {
-          name: '粉色单色补充包',
+          name: 'Pink Single Color Pack',
           price: '6',
-          tag: '粉色',
+          tag: 'Pink',
           tagClass: 'tag-peach',
           hero: 'Image/refill-pink.jpg',
-          desc: '软萌粉色单色补充包，适合腮红、小花、蝴蝶结等可爱元素。和套装里的颜色叠搭，作品更甜美。',
-          specs: ['材质：PLA可降解环保材料（不可食用）', '规格：5mm标准融合豆，10克', '适用年龄：建议 6 岁以上，须家长陪同', '提示：开封后请收纳好，避免散落'],
+          desc: 'Soft pink pack, perfect for blush, flowers, bows and cute elements. Pairs beautifully with set colors for sweeter creations.',
+          specs: ['Material: PLA biodegradable eco-plastic (not edible)', 'Size: 5mm standard fuse beads, 10g', 'Age: 6+ recommended, parental supervision required', 'Tip: Store properly after opening to prevent scattering'],
           comments: [
-            { name: '棉花糖', stars: '★★★★★', text: '粉色温柔，女儿最爱这一袋。', avatar: 'images/cmt-01.jpg' },
-            { name: '小鹿老师', stars: '★★★★☆', text: '课堂补材料用，颜色统一。', avatar: 'images/cmt-04.jpg' },
-            { name: '妮妮', stars: '★★★★★', text: '我要拼公主裙！', avatar: 'images/cmt-03.jpg' },
-            { name: '豆友', stars: '★★★★★', text: '回购第三包了。', avatar: 'images/cmt-02.jpg' }
+            { name: 'Cotton Candy', stars: '★★★★★', text: "Gentle pink, daughter's favorite.", avatar: 'images/cmt-01.jpg' },
+            { name: 'Little Deer Teacher', stars: '★★★★☆', text: 'Great for classroom replenishment, unified colors.', avatar: 'images/cmt-04.jpg' },
+            { name: 'Nini', stars: '★★★★★', text: 'I want to make a princess dress!', avatar: 'images/cmt-03.jpg' },
+            { name: 'Bead Friend', stars: '★★★★★', text: 'Third repurchase already.', avatar: 'images/cmt-02.jpg' }
           ]
         }
       };
@@ -1830,7 +3869,7 @@
         }, 2200);
       }
 
-      /** ---------- 购物车：localStorage + 角标 + 列表渲染 ---------- */
+      /** ---------- Cart：localStorage + 角标 + 列表渲染 ---------- */
       function loadCartLines() {
         try {
           var raw = localStorage.getItem(CART_STORAGE_KEY);
@@ -1923,9 +3962,9 @@
             cartThumbSrc(pid) +
             '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22/%3E\';" />' +
             '<div class="cart-line-main">' +
-            '<div><div class="cart-line-title"></div><div class="cart-line-unit">单价 ¥' +
+            '<div><div class="cart-line-title"></div><div class="cart-line-unit">Unit Price ¥' +
             meta.price +
-            ' · 数量 <span class="cart-qty-display"></span></div><div class="cart-line-sub">小计 ¥' +
+            ' · Quantity <span class="cart-qty-display"></span></div><div class="cart-line-sub">Subtotal ¥' +
             sub.toFixed(0) +
             '</div></div>' +
             '<div class="cart-qty-row">' +
@@ -1940,7 +3979,7 @@
             '<div class="cart-line-actions">' +
             '<button type="button" class="cart-line-delete" data-cart-del="' +
             pid +
-            '">删除</button>' +
+            '">Delete</button>' +
             '</div>';
           line.querySelector('.cart-line-title').textContent = meta.name;
           line.querySelector('.cart-qty-display').textContent = String(qty);
@@ -1964,7 +4003,7 @@
       function addCurrentProductToCart() {
         var pid = currentDetailProductId;
         if (!pid || !PRODUCT_DETAILS[pid]) {
-          showToast('请先打开商品详情再添加哦～');
+          showToast('Please open product details first~');
           return;
         }
         var lines = loadCartLines();
@@ -1980,7 +4019,7 @@
           lines.push({ productId: pid, qty: 1 });
         }
         persistAndRefresh(lines);
-        showToast('已加入购物车');
+        showToast('Added to cart');
       }
 
       function changeCartQty(productId, delta) {
@@ -2022,7 +4061,7 @@
       });
 
       function showView(viewName) {
-        var ids = ['home', 'detail', 'cart', 'profile'];
+        var ids = ['home', 'detail', 'cart', 'profile', 'level'];
         ids.forEach(function (id) {
           var el = document.getElementById('view-' + id);
           if (!el) return;
@@ -2031,10 +4070,15 @@
           el.setAttribute('aria-hidden', on ? 'false' : 'true');
         });
         if (bottomNav) {
-          bottomNav.classList.toggle('is-hidden', viewName === 'detail' || viewName === 'cart');
+          bottomNav.classList.toggle(
+            'is-hidden',
+            viewName === 'detail' || viewName === 'cart' || viewName === 'level'
+          );
         }
         if (viewName === 'home' && scrollEl) scrollEl.scrollTop = 0;
         if (viewName === 'detail' && detailScrollEl) detailScrollEl.scrollTop = 0;
+        var levelScrollEl = document.getElementById('level-scroll');
+        if (viewName === 'level' && levelScrollEl) levelScrollEl.scrollTop = 0;
         if (viewName === 'cart') {
           var csa = document.getElementById('cart-scroll-area');
           if (csa) csa.scrollTop = 0;
@@ -2046,6 +4090,7 @@
           var po = document.getElementById('profile-orders-panel');
           if (pm) pm.classList.remove('is-hidden');
           if (po) po.classList.remove('is-active');
+          refreshProfileAvatarDisplay();
         }
       }
 
@@ -2114,6 +4159,7 @@
           if (tab) {
             showView('home');
             setPanel(tab);
+            if (tab === 'challenge') renderChallengePath();
           }
         });
       });
@@ -2138,6 +4184,37 @@
         setPanel(lastHomeTab);
       });
 
+      document.getElementById('level-back-btn').addEventListener('click', function () {
+        closeLevelPatternLightbox();
+        currentLevelId = null;
+        showView('home');
+        setPanel('challenge');
+        renderChallengePath();
+      });
+
+      document.getElementById('level-complete-btn').addEventListener('click', function () {
+        completeCurrentLevel();
+      });
+
+      (function () {
+        var wrap = document.getElementById('pattern-board-wrap-btn');
+        if (wrap) {
+          wrap.addEventListener('click', function () {
+            openLevelPatternLightbox();
+          });
+          wrap.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openLevelPatternLightbox();
+            }
+          });
+        }
+        var lbClose = document.getElementById('level-pattern-lightbox-close');
+        var lbBackdrop = document.getElementById('level-pattern-lightbox-backdrop');
+        if (lbClose) lbClose.addEventListener('click', closeLevelPatternLightbox);
+        if (lbBackdrop) lbBackdrop.addEventListener('click', closeLevelPatternLightbox);
+      })();
+
       document.getElementById('cart-back-btn').addEventListener('click', function () {
         showView('home');
         setPanel(lastHomeTab);
@@ -2151,23 +4228,151 @@
         showView('profile');
       });
 
+      var profileAvatarShortcut = document.getElementById('profile-go-avatar-settings');
+      if (profileAvatarShortcut) {
+        profileAvatarShortcut.addEventListener('click', function () {
+          showView('home');
+          setPanel('challenge');
+          ensureAvatarPopoverBuilt();
+          syncAvatarPopoverUI();
+          var pop = document.getElementById('challenge-avatar-popover');
+          if (pop) {
+            pop.classList.add('is-open');
+            pop.setAttribute('aria-hidden', 'false');
+          }
+          window.setTimeout(function () {
+            var row = document.querySelector('.challenge-avatar-row');
+            if (row && scrollEl) {
+              row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+            }
+          }, 100);
+        });
+      }
+
       document.getElementById('detail-add-cart-btn').addEventListener('click', function () {
         addCurrentProductToCart();
       });
 
       document.getElementById('detail-buy-btn').addEventListener('click', function () {
-        showToast('已发起购买（演示），暂无真实支付）');
+        showToast('Purchase initiated (demo only, no real payment)');
       });
 
       document.getElementById('cart-checkout-btn').addEventListener('click', function () {
         if (getCartTotalQty() === 0) {
-          showToast('购物车还是空的，先去逛逛吧～');
+          showToast("Cart is empty, let's browse~");
           return;
         }
-        showToast('去结算（演示）：合计已计算，后续可对接支付与地址～');
+        showToast('Checkout (demo): Total calculated, payment & address integration pending~');
       });
 
+      var editAvatarBtn = document.getElementById('challenge-avatar-edit-btn');
+      if (editAvatarBtn) {
+        editAvatarBtn.addEventListener('click', function () {
+          ensureAvatarPopoverBuilt();
+          syncAvatarPopoverUI();
+          var p = document.getElementById('challenge-avatar-popover');
+          if (!p) return;
+          p.classList.toggle('is-open');
+          p.setAttribute('aria-hidden', p.classList.contains('is-open') ? 'false' : 'true');
+        });
+      }
+
+      var popClose = document.getElementById('challenge-avatar-popover-close');
+      if (popClose) {
+        popClose.addEventListener('click', function () {
+          var p = document.getElementById('challenge-avatar-popover');
+          if (p) {
+            p.classList.remove('is-open');
+            p.setAttribute('aria-hidden', 'true');
+          }
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              positionChallengeAvatarFloat();
+              updateChallengeRoadPath();
+            });
+          });
+        });
+      }
+
+      var avatarPop = document.getElementById('challenge-avatar-popover');
+      if (avatarPop) {
+        avatarPop.addEventListener('click', function (e) {
+          var t = e.target;
+          if (!(t instanceof HTMLElement)) return;
+          var presetBtn = t.closest('.challenge-preset-btn');
+          if (presetBtn) {
+            var cfgP = getAvatarConfig();
+            cfgP.preset = parseInt(presetBtn.getAttribute('data-preset'), 10) || 0;
+            cfgP.mode = 'bead';
+            cfgP.photoDataUrl = '';
+            saveAvatarConfig(cfgP);
+            refreshChallengeAvatars();
+            syncAvatarPopoverUI();
+            return;
+          }
+        });
+      }
+
+      var _challengeResizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(_challengeResizeTimer);
+        _challengeResizeTimer = setTimeout(function () {
+          var panel = document.getElementById('tab-panel-challenge');
+          if (panel && panel.classList.contains('is-active')) {
+            positionChallengeAvatarFloat();
+            updateChallengeRoadPath();
+          }
+        }, 150);
+      });
+
+      if (scrollEl) {
+        scrollEl.addEventListener(
+          'scroll',
+          function () {
+            var panel = document.getElementById('tab-panel-challenge');
+            if (panel && panel.classList.contains('is-active')) {
+              positionChallengeAvatarFloat();
+              updateChallengeRoadPath();
+            }
+          },
+          { passive: true }
+        );
+      }
+
+      var uploadTrigger = document.getElementById('challenge-avatar-upload-btn');
+      var fileInput = document.getElementById('challenge-avatar-file');
+      if (uploadTrigger && fileInput) {
+        uploadTrigger.addEventListener('click', function () {
+          fileInput.click();
+        });
+        fileInput.addEventListener('change', function () {
+          var f = fileInput.files && fileInput.files[0];
+          if (f) processAvatarPhotoFile(f);
+          fileInput.value = '';
+        });
+      }
+
+      var revertBeadBtn = document.getElementById('challenge-avatar-revert-bead-btn');
+      if (revertBeadBtn) {
+        revertBeadBtn.addEventListener('click', function () {
+          var c = getAvatarConfig();
+          c.mode = 'bead';
+          c.photoDataUrl = '';
+          saveAvatarConfig(c);
+          refreshChallengeAvatars();
+          syncAvatarPopoverUI();
+          showToast('Switched to icon avatar~');
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              positionChallengeAvatarFloat();
+              updateChallengeRoadPath();
+            });
+          });
+        });
+      }
+
       updateCartBadge();
+      renderChallengePath();
 
       document.getElementById('profile-go-orders').addEventListener('click', function () {
         document.getElementById('profile-main-panel').classList.add('is-hidden');
@@ -2184,7 +4389,7 @@
         if (el) {
           el.addEventListener('click', function () {
             var label = el.textContent.replace(/\s*›\s*$/, '');
-            showToast('「' + label + '」页面开发中，可先完善资料与订单哦～');
+            showToast('「' + label + '」Page under development. Complete your profile and orders first~');
           });
         }
       });
